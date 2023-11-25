@@ -33,7 +33,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1135473673744116504}
+  - {fileID: 7973576658054605910}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -291,7 +291,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
---- !u!1001 &596931696850242803
+--- !u!1001 &7578833341198994365
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -350,10 +350,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -7511558181221131132, guid: 06463f564f854c14d996ffde0e7e0533, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 06463f564f854c14d996ffde0e7e0533, type: 3}
       propertyPath: m_Name
       value: floor2
@@ -364,8 +360,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06463f564f854c14d996ffde0e7e0533, type: 3}
---- !u!4 &1135473673744116504 stripped
+--- !u!4 &7973576658054605910 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 06463f564f854c14d996ffde0e7e0533, type: 3}
-  m_PrefabInstance: {fileID: 596931696850242803}
+  m_PrefabInstance: {fileID: 7578833341198994365}
   m_PrefabAsset: {fileID: 0}
