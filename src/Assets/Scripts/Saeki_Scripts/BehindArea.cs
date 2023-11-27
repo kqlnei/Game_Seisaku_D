@@ -15,6 +15,7 @@ public class BehindArea : MonoBehaviour
 
     Animator m_Animator;
     private GameObject playerObject;
+    private Playercontroller playerController;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +30,7 @@ public class BehindArea : MonoBehaviour
         }
         textObject.SetActive(false);
         behindEnter = false;
+        playerController = GetComponent<Playercontroller>();
     }
 
     // Update is called once per frame
@@ -45,15 +47,33 @@ public class BehindArea : MonoBehaviour
             // ImageUIを表示する
             image.gameObject.SetActive(true);
             Invoke("PowTextFalse", 0.5f);
+            // キーが押されたとき、PlayerTagが付いたオブジェクトを親オブジェクトの方向に向ける
+            RotatePlayerTowardsParent();
 
-
-            if (behindEnter && playerObject != null)
-            {
-                transform.LookAt(this.transform);
-            }
         }
     }
 
+    void RotatePlayerTowardsParent()
+    {
+        if (playerObject != null && playerObject.CompareTag("Player"))
+        {
+            // 親オブジェクトを取得
+            Transform parentTransform = transform.parent;
+
+            if (parentTransform != null)
+            {
+                // 親オブジェクトの方向を取得し、y軸方向だけ考慮してプレイヤーオブジェクトを向ける
+                Vector3 directionToParent = parentTransform.position - playerObject.transform.position;
+                directionToParent.y = 0f; // y軸方向を無視
+                Quaternion lookRotation = Quaternion.LookRotation(directionToParent);
+                playerObject.transform.rotation = lookRotation;
+            }
+            else
+            {
+                Debug.LogError("Parent transform not found.");
+            }
+        }
+    }
     /*public void PowAnimEnd()
     {
         Debug.Log("ENDANIM");
@@ -62,6 +82,7 @@ public class BehindArea : MonoBehaviour
     void ResetPowParameter()
     {
         m_Animator.SetBool("Pow", false);
+
     }
 
     void PowTextFalse()

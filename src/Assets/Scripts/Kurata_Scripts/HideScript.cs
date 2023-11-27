@@ -47,8 +47,6 @@ public class HideScript : MonoBehaviour
                 ChangeHide();
             }
 
-
-
         }
     }
 
@@ -71,10 +69,7 @@ public class HideScript : MonoBehaviour
         }
         else
         {
-            if (playerController != null)
-            {
-                playerController.enabled = true;
-            }
+           
             if (boxCollider != null)
             {
                 boxCollider.isTrigger = false;
@@ -87,27 +82,34 @@ public class HideScript : MonoBehaviour
         }
     }
 
+    // MoveToTarget メソッド
     IEnumerator MoveToTarget(Vector3 nowPosition, Vector3 targetPosition)
     {
-        // Keep the y-coordinate fixed
-        targetPosition.y = 2f;
+        targetPosition.y = 2f; // y座標を固定する
         isMoving = true; // 移動中のフラグをセット
-        // 距離が一定以下になるまで補間を続ける
+
         while (Vector3.Distance(transform.position, targetPosition) > 0.1f)
         {
             transform.LookAt(targetPosition);
             transform.position = Vector3.Slerp(nowPosition, targetPosition, moveSpeed * Time.deltaTime);
             nowPosition = transform.position;
 
-            // 1フレーム待機
-            yield return null;
+            yield return null; // 1フレーム待機
         }
 
-        // 最終的な位置を目標の位置に設定（誤差をなくすため）
-        transform.position = targetPosition;
+        transform.position = targetPosition; // 最終的な位置を目標の位置に設定
         isMoving = false; // 移動が終わったらフラグをリセット
-    }
 
+        // 移動が完了したらプレイヤーコントローラーを有効にする
+        if (!HideMode)
+        {
+            if (playerController != null)
+            {
+                playerController.enabled = true;
+            }
+        }
+                    
+    }
     private void OnTriggerStay(Collider col)
     {
         if (col.gameObject.tag == "Hide")
