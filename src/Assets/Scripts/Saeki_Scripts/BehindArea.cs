@@ -74,15 +74,11 @@ public class BehindArea : MonoBehaviour
             }
         }
     }
-    /*public void PowAnimEnd()
-    {
-        Debug.Log("ENDANIM");
-    }*/
+    
 
     void ResetPowParameter()
     {
         m_Animator.SetBool("Pow", false);
-
     }
 
     void PowTextFalse()

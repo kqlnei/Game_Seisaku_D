@@ -6,11 +6,13 @@ public class Playercontroller : MonoBehaviour
 {
     public float turnSpeed = 20f;
     public float moveSpeed = 5f;
+    public float stoppingTime = 0.1f; // Adjust this value for the desired stopping time
 
-    Animator m_Animator;
-    Rigidbody m_Rigidbody;
-    Vector3 m_Movement;
-    Quaternion m_Rotation = Quaternion.identity;
+    private Animator m_Animator;
+    private Rigidbody m_Rigidbody;
+    private Vector3 m_Movement;
+    private Quaternion m_Rotation = Quaternion.identity;
+    private Vector3 m_Velocity;
 
     void Start()
     {
@@ -23,10 +25,7 @@ public class Playercontroller : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
-        // ì¸óÕï˚å¸ÇÃï‚ê≥
         Vector3 inputDirection = CorrectInputDirection(new Vector3(horizontal, 0f, vertical));
-
-        // ê≥ãKâª
         inputDirection.Normalize();
 
         m_Movement.Set(inputDirection.x, 0f, inputDirection.z);
@@ -45,18 +44,27 @@ public class Playercontroller : MonoBehaviour
     void Move()
     {
         Vector3 movement = m_Movement * moveSpeed * Time.fixedDeltaTime;
-        m_Rigidbody.MovePosition(transform.position + movement);
+        m_Rigidbody.MovePosition(m_Rigidbody.position + movement);
+
+        // Apply inertia to slow down when there is no input
+        if (!m_Movement.Equals(Vector3.zero))
+        {
+            m_Velocity = m_Movement * moveSpeed;
+        }
+        else
+        {
+            m_Velocity = Vector3.Lerp(m_Velocity, Vector3.zero, stoppingTime * Time.fixedDeltaTime);
+            m_Rigidbody.MovePosition(m_Rigidbody.position + m_Velocity * Time.fixedDeltaTime);
+        }
     }
 
     void OnAnimatorMove()
     {
-        m_Rigidbody.MovePosition(m_Rigidbody.position + m_Movement * m_Animator.deltaPosition.magnitude);
         m_Rigidbody.MoveRotation(m_Rotation);
     }
 
     Vector3 CorrectInputDirection(Vector3 inputDirection)
     {
-        // ÉJÉÅÉâÇÃâÒì]Ç…ÇÊÇÈì¸óÕï˚å¸ÇÃï‚ê≥
         float cameraRotationY = Camera.main.transform.rotation.eulerAngles.y;
         Quaternion correction = Quaternion.Euler(0f, cameraRotationY, 0f);
         Vector3 correctedDirection = correction * inputDirection;
