@@ -16,6 +16,10 @@ public class BehindArea : MonoBehaviour
     Animator m_Animator;
     private GameObject playerObject;
     private Playercontroller playerController;
+
+    public AudioClip sound1, sound2;
+    AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +35,8 @@ public class BehindArea : MonoBehaviour
         textObject.SetActive(false);
         behindEnter = false;
         playerController = GetComponent<Playercontroller>();
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -39,7 +45,6 @@ public class BehindArea : MonoBehaviour
         // Zキーが押されたとき
         if (Gamepad.current.buttonEast.wasReleasedThisFrame && playerInsideArea)// || (Input.GetKeyDown(KeyCode.Z) && playerInsideArea)
         {
-
             m_Animator.SetBool("Pow", true);
             Invoke("ResetPowParameter", 3f);
             playerInsideArea = false;
@@ -50,6 +55,9 @@ public class BehindArea : MonoBehaviour
             // キーが押されたとき、PlayerTagが付いたオブジェクトを親オブジェクトの方向に向ける
             RotatePlayerTowardsParent();
 
+            audioSource.PlayOneShot(sound1);
+            audioSource.PlayOneShot(sound2);
+            Debug.Log("BOOOO");
         }
     }
 
