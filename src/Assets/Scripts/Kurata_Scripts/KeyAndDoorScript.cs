@@ -17,6 +17,9 @@ public class KeyAndDoorScript : MonoBehaviour
 
     public Image[] KeyImages;
 
+    private Animator childAnimator;
+
+    private BoxCollider doorCollider;
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Key"))
@@ -43,7 +46,22 @@ public class KeyAndDoorScript : MonoBehaviour
             // すべての鍵を取得した場合、扉を開ける処理
             if (collectedKeys >= requiredKeys)
             {
-                OpenDoor();
+                // 接触したオブジェクトの子オブジェクトを取得
+                Transform childTransform = other.transform.GetChild(0);
+                // 子オブジェクトにアタッチされているAnimatorコンポーネントを取得
+                childAnimator = childTransform.GetComponent<Animator>();
+
+                if (childAnimator != null)
+                {
+                    childAnimator.SetBool("DoorOpen", true);
+                }
+
+                doorCollider = other.transform.GetChild(0).GetComponent<BoxCollider>();
+
+                // 2秒後にDisableColliderメソッドを呼び出す
+                Invoke("DisableCollider", 1f);
+
+                //OpenDoor();
             }
         }
     }
@@ -66,6 +84,15 @@ public class KeyAndDoorScript : MonoBehaviour
 
     void OpenDoor()
     {
-        Destroy(Door,3f);
+            Destroy(Door,3f);
+    }
+
+    void DisableCollider()
+    {
+        // BoxColliderを無効にする
+        if (doorCollider != null)
+        {
+            doorCollider.enabled = false;
+        }
     }
 }

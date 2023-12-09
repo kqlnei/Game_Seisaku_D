@@ -24,6 +24,8 @@ public class HideScript : MonoBehaviour
     private CapsuleCollider capsuleCollider;
 
     private bool isMoving = false; // 移動中のフラグ
+
+    Animator ArmorAnimator;
     // Start is called before the first frame update
     void Start()
     {
@@ -65,7 +67,7 @@ public class HideScript : MonoBehaviour
             capsuleCollider.enabled = false;
             hidetextComponent.text = "Press [A] to stop hiding";
             StartCoroutine(MoveToTarget(nowPoint.position, InSidePoint.position));
-
+            
         }
         else
         {
@@ -77,8 +79,11 @@ public class HideScript : MonoBehaviour
             capsuleCollider.enabled = true;
             hidetextComponent.text = "Press [A] button";
             StartCoroutine(MoveToTarget(nowPoint.position, OutSidePoint.position));
-        
-
+            this.transform.GetChild(2).gameObject.SetActive(true);
+            if (ArmorAnimator != null)
+            {
+                ArmorAnimator.SetBool("possession", false);
+            }
         }
     }
 
@@ -87,10 +92,11 @@ public class HideScript : MonoBehaviour
     {
         targetPosition.y = 2f; // y座標を固定する
         isMoving = true; // 移動中のフラグをセット
+        transform.LookAt(targetPosition);
 
         while (Vector3.Distance(transform.position, targetPosition) > 0.1f)
         {
-            transform.LookAt(targetPosition);
+           
             transform.position = Vector3.Slerp(nowPosition, targetPosition, moveSpeed * Time.deltaTime);
             nowPosition = transform.position;
 
@@ -100,9 +106,20 @@ public class HideScript : MonoBehaviour
         transform.position = targetPosition; // 最終的な位置を目標の位置に設定
         isMoving = false; // 移動が終わったらフラグをリセット
 
+        if (HideMode)
+        {
+            this.transform.GetChild(2).gameObject.SetActive(false);
+
+            if (ArmorAnimator != null)
+            {
+                ArmorAnimator.SetBool("possession", true);
+            }
+        }
+
         // 移動が完了したらプレイヤーコントローラーを有効にする
         if (!HideMode)
         {
+            targetPosition.y = 2f; // y座標を固定する
             if (playerController != null)
             {
                 playerController.enabled = true;
@@ -116,6 +133,9 @@ public class HideScript : MonoBehaviour
         {
             Transform parentTransform = col.transform.parent;
             boxCollider = parentTransform.GetComponent<BoxCollider>();
+
+            Transform ArmorTransform = parentTransform.GetChild(0);
+            ArmorAnimator = ArmorTransform.GetComponent<Animator>();
 
             isPlayerInside = true;
             HidetextObject.SetActive(true);
