@@ -84,7 +84,8 @@ public class EnemySearchScript : MonoBehaviour
     private bool MadeItem;
     private int destPoint;
     private float Interval;
-
+    private bool RandamBack;
+    private int BackRote_y = 0;
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -112,6 +113,8 @@ public class EnemySearchScript : MonoBehaviour
         anim.SetBool("Surp", false);
         anim.SetBool("Stoping", false);
         blendshape_SMR = Moush.GetComponent<SkinnedMeshRenderer>();
+
+        RandamBack = false;
     }
     void ChangeMove()
     {
@@ -198,6 +201,8 @@ public class EnemySearchScript : MonoBehaviour
     {
         if (BeforeMove != EnemyMove)
         {
+            RandamBack = false;
+            BackRote_y = 0;
             Interval = 0.0f;
         }
 
@@ -227,6 +232,8 @@ public class EnemySearchScript : MonoBehaviour
     {
         if (BeforeMove != EnemyMove)
         {
+            RandamBack = false;
+            BackRote_y = 0;
             Interval = 0.0f;
         }
 
@@ -276,6 +283,10 @@ public class EnemySearchScript : MonoBehaviour
     {
         if (BeforeMove != EnemyMove)
         {
+            RandamBack = false;
+            BackRote_y = 0;
+            Interval = 0.0f;
+
             Vector3 temp_pos = new Vector3();
             GameObject[] Binns = GameObject.FindGameObjectsWithTag("Fall");
             HaerdSoundsScript[] Script = new HaerdSoundsScript[Binns.Length];
@@ -305,30 +316,46 @@ public class EnemySearchScript : MonoBehaviour
         agent.destination = transform.position;
         Interval += Time.deltaTime;
 
-        if (Interval - StopInterval < 0)
+        if (RandamBack)
         {
-            if (StopInterval - Interval >= StopInterval * 3.0f / 4.0f)
-                transform.Rotate(new Vector3(0, StopRotation, 0));
+            BackRote_y++;
 
-            else if (StopInterval - Interval >= StopInterval / 4.0f)
-                transform.Rotate(new Vector3(0, -StopRotation, 0));
-
+            if(BackRote_y < 250)
+                transform.Rotate(new Vector3(0, 0.8f, 0));
             else
-                transform.Rotate(new Vector3(0, StopRotation, 0));
+            {
+                RandamBack = false;
+                BackRote_y = 0;
+            }   
         }
         else
         {
-            Interval = 0.0f;
-            agent.destination = Waypoints[destPoint].position;
-            EnemyMove = Move.Search;
-        }
+            if (Interval - StopInterval < 0)
+            {
+                if (StopInterval - Interval >= StopInterval * 3.0f / 4.0f)
+                    transform.Rotate(new Vector3(0, StopRotation, 0));
 
+                else if (StopInterval - Interval >= StopInterval / 4.0f)
+                    transform.Rotate(new Vector3(0, -StopRotation, 0));
+
+                else
+                    transform.Rotate(new Vector3(0, StopRotation, 0));
+            }
+            else
+            {
+                Interval = 0.0f;
+                agent.destination = Waypoints[destPoint].position;
+                EnemyMove = Move.Search;
+            }
+        }
     }
 
     void EscapeCommand()
     {
         if (BeforeMove != EnemyMove)
         {
+            RandamBack = false;
+            BackRote_y = 0;
             Interval = 0.0f;
 
             agent.speed = 2.0f;
@@ -378,7 +405,11 @@ public class EnemySearchScript : MonoBehaviour
         // エージェントが現在設定された目標地点に行くように設定
         agent.destination = Waypoints[destPoint].position;
 
-        if(Random.Range(0, 10) < Random_turn)//0～10からランダム
+        if (Random.Range(0, 10) < Random_turn)//0～10からランダム{
+        {
+            RandamBack = true;
             EnemyMove = Move.Stop;
+        }
+            
     }
 }

@@ -6125,7 +6125,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-3276
+  m_Name: pb_Mesh-66850
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -11405,7 +11405,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-4538
+  m_Name: pb_Mesh-68116
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -18383,6 +18383,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1119361593755470540, guid: 12606cc1ace44e34b8cae815f1936e47, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2143162261}
+    - target: {fileID: 1119361593755470540, guid: 12606cc1ace44e34b8cae815f1936e47, type: 3}
       propertyPath: escapetextObject
       value: 
       objectReference: {fileID: 5374275}
@@ -19637,6 +19641,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1119361593755470540, guid: 12606cc1ace44e34b8cae815f1936e47, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2143162261}
+    - target: {fileID: 1119361593755470540, guid: 12606cc1ace44e34b8cae815f1936e47, type: 3}
       propertyPath: escapetextObject
       value: 
       objectReference: {fileID: 5374275}
@@ -19915,6 +19923,10 @@ PrefabInstance:
     - target: {fileID: 8193786066692408387, guid: 12606cc1ace44e34b8cae815f1936e47, type: 3}
       propertyPath: DropItem
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8193786066692408387, guid: 12606cc1ace44e34b8cae815f1936e47, type: 3}
+      propertyPath: Random_turn
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8193786066692408387, guid: 12606cc1ace44e34b8cae815f1936e47, type: 3}
       propertyPath: StopRotation
@@ -25630,6 +25642,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1119361593755470540, guid: 12606cc1ace44e34b8cae815f1936e47, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2143162261}
+    - target: {fileID: 1119361593755470540, guid: 12606cc1ace44e34b8cae815f1936e47, type: 3}
       propertyPath: escapetextObject
       value: 
       objectReference: {fileID: 5374275}
@@ -28178,6 +28194,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 2143162261}
+    - target: {fileID: 8193786066692408387, guid: 12606cc1ace44e34b8cae815f1936e47, type: 3}
+      propertyPath: Random_turn
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8193786066692408387, guid: 12606cc1ace44e34b8cae815f1936e47, type: 3}
       propertyPath: StopRotation
       value: 0.1
