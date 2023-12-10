@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 814bd054adb8b9a45989c6b8e2f971e9
+guid: 3f454906f8171f64bba9c4d4a200fbf5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Start_gif_0
+      name: mepati_2_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 1575
-        width: 560
-        height: 315
+        y: 1728
+        width: 512
+        height: 288
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ac7ac3d9416ecc46a40147a0e9a6180
-      internalID: 1623589263
+      spriteID: 2cfef5206fadb1a4fa4f3041c28cfa10
+      internalID: 971626715
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Start_gif_1
+      name: mepati_2_1
       rect:
         serializedVersion: 2
-        x: 560
-        y: 1575
-        width: 560
-        height: 315
+        x: 512
+        y: 1728
+        width: 512
+        height: 288
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 03f309cdf9e1942448f5289430e00d6d
-      internalID: -416668552
+      spriteID: 054188ac3b288c3469ab836ef5c3017e
+      internalID: -525466174
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Start_gif_2
+      name: mepati_2_2
       rect:
         serializedVersion: 2
-        x: 1120
-        y: 1575
-        width: 560
-        height: 315
+        x: 1024
+        y: 1728
+        width: 512
+        height: 288
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,20 +173,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: db9e67f09657f5545a45142db0488c9f
-      internalID: 898494618
+      spriteID: 41996d79f672eb84ba688bb66aad9b5d
+      internalID: -389729838
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Start_gif_3
+      name: mepati_2_3
       rect:
         serializedVersion: 2
-        x: 1680
-        y: 1575
-        width: 560
-        height: 315
+        x: 1536
+        y: 1728
+        width: 512
+        height: 288
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,104 +194,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0236139dc95a26045a03ffb88d026e56
-      internalID: -1294789427
+      spriteID: b38882146e80ab846b44aaf06531bf0a
+      internalID: -1701280895
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Start_gif_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1260
-        width: 560
-        height: 315
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 79e218a2dd6ac294bb36a6ee7e052a3c
-      internalID: 998213990
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Start_gif_5
-      rect:
-        serializedVersion: 2
-        x: 560
-        y: 1260
-        width: 560
-        height: 315
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 589c3652e9d61444092f2452d72e7364
-      internalID: -831389030
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Start_gif_6
-      rect:
-        serializedVersion: 2
-        x: 1120
-        y: 1260
-        width: 560
-        height: 315
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e6e2e8b9dfff16f429a6916a4de7eebd
-      internalID: -1131285235
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Start_gif_7
-      rect:
-        serializedVersion: 2
-        x: 1680
-        y: 1260
-        width: 560
-        height: 315
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 682338773bffa7141b3fd81cdd79d562
-      internalID: 1998609045
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Start_gif_8
+      name: mepati_2_4
       rect:
         serializedVersion: 2
         x: 0
-        y: 945
-        width: 560
-        height: 315
+        y: 1440
+        width: 512
+        height: 288
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -299,20 +215,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5beac35eb8dc3f74896bd324890b10d3
-      internalID: -60722438
+      spriteID: f2a9a5a3094f9854e83fae253d8bf404
+      internalID: -717457578
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Start_gif_9
+      name: mepati_2_5
       rect:
         serializedVersion: 2
-        x: 560
-        y: 945
-        width: 560
-        height: 315
+        x: 512
+        y: 1440
+        width: 512
+        height: 288
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -320,20 +236,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9982823647f6dea42898659e59c1dab3
-      internalID: 2133021798
+      spriteID: 984fad1346204ae46ae91e5fc6bcfbe4
+      internalID: -937024429
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Start_gif_10
+      name: mepati_2_6
       rect:
         serializedVersion: 2
-        x: 1120
-        y: 945
-        width: 560
-        height: 315
+        x: 1024
+        y: 1440
+        width: 512
+        height: 288
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -341,20 +257,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea358b26c3f657e4faceb322af07c861
-      internalID: 92444819
+      spriteID: 35a24a5144f1cb041a2fc8b9ceb4332a
+      internalID: -271157742
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Start_gif_11
+      name: mepati_2_7
       rect:
         serializedVersion: 2
-        x: 1680
-        y: 945
-        width: 560
-        height: 315
+        x: 1536
+        y: 1440
+        width: 512
+        height: 288
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -362,104 +278,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 891311425bf39a34698dbf03d966517f
-      internalID: -1168685650
+      spriteID: 45ee666eade29be45aa31289493b1ad8
+      internalID: 1891058259
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Start_gif_12
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 630
-        width: 560
-        height: 315
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4ba2385f78aa8eb49b4b9f24d3386d80
-      internalID: -520069797
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Start_gif_13
-      rect:
-        serializedVersion: 2
-        x: 560
-        y: 630
-        width: 560
-        height: 315
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 34b07349ec1ec834c9d2bf45166063b9
-      internalID: 239939220
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Start_gif_14
-      rect:
-        serializedVersion: 2
-        x: 1120
-        y: 630
-        width: 560
-        height: 315
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 15a35cc68ce152d4791b628e13a77a5a
-      internalID: -1780362305
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Start_gif_15
-      rect:
-        serializedVersion: 2
-        x: 1680
-        y: 630
-        width: 560
-        height: 315
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 070f42aae7b53a74ca0e3788bf6817eb
-      internalID: -738828823
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Start_gif_16
+      name: mepati_2_8
       rect:
         serializedVersion: 2
         x: 0
-        y: 315
-        width: 560
-        height: 315
+        y: 1152
+        width: 512
+        height: 288
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -467,20 +299,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dac6f4be66741db44972facd960ec602
-      internalID: 943248610
+      spriteID: d31d5302db11d1e4c99c1f01a734e763
+      internalID: -116704046
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Start_gif_17
+      name: mepati_2_9
       rect:
         serializedVersion: 2
-        x: 560
-        y: 315
-        width: 560
-        height: 315
+        x: 512
+        y: 1152
+        width: 512
+        height: 288
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -488,20 +320,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd2ddbff197d7c94780eaa2b32f8a63a
-      internalID: -451063515
+      spriteID: e9555c73c5504ec499ddfeb606dcebcb
+      internalID: 1444034927
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Start_gif_18
+      name: mepati_2_10
       rect:
         serializedVersion: 2
-        x: 1120
-        y: 315
-        width: 560
-        height: 315
+        x: 1024
+        y: 1152
+        width: 512
+        height: 288
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -509,20 +341,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3ff7085fbad511546b83410c814d58fa
-      internalID: 1285080490
+      spriteID: 3f61fedd9700add4681a906303ac48b9
+      internalID: -1858128864
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Start_gif_19
+      name: mepati_2_11
       rect:
         serializedVersion: 2
-        x: 1680
-        y: 315
-        width: 560
-        height: 315
+        x: 1536
+        y: 1152
+        width: 512
+        height: 288
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -530,20 +362,272 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d94f8d7e5bcdb9547a70a412fb6f2229
-      internalID: 1295849344
+      spriteID: 046e0072a765e20459f86e805c575046
+      internalID: 312585086
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Start_gif_20
+      name: mepati_2_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 864
+        width: 512
+        height: 288
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a889b84909bb8644fb6dd2e2b30ec177
+      internalID: 1366371178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mepati_2_13
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 864
+        width: 512
+        height: 288
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77258643e1d8bfc4abf2576ec32c9b5f
+      internalID: -1792038893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mepati_2_14
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 864
+        width: 512
+        height: 288
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44a66b22b30f6b3438ffa3c0ebf0645d
+      internalID: 2041332158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mepati_2_15
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 864
+        width: 512
+        height: 288
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e230597f00882643a3c1b65fb72cf32
+      internalID: 906156863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mepati_2_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 576
+        width: 512
+        height: 288
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b92b78819d576324fb14cc0fb7c0caa0
+      internalID: 780593734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mepati_2_17
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 576
+        width: 512
+        height: 288
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5dbaeca3414c243458e553955bd30e4d
+      internalID: -2055937279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mepati_2_18
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 576
+        width: 512
+        height: 288
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59d543ceaae102c49a2ce805f153fa94
+      internalID: 1404433217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mepati_2_19
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 576
+        width: 512
+        height: 288
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4ec0458d42e0394c888eac0f69b7595
+      internalID: 300321245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mepati_2_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 288
+        width: 512
+        height: 288
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34d6c90162cc48a489cb1d63f72971c5
+      internalID: -248132818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mepati_2_21
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 288
+        width: 512
+        height: 288
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f66ceecd0f29b7c44acdd7350b8e2b30
+      internalID: 1874473543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mepati_2_22
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 288
+        width: 512
+        height: 288
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09335e2bbe95baa4eb069bdd8226480f
+      internalID: -33842459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mepati_2_23
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 288
+        width: 512
+        height: 288
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63e38ca8a66174a45b2e5c63535cc5b3
+      internalID: 1947918600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mepati_2_24
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 560
-        height: 315
+        width: 512
+        height: 288
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -551,20 +635,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 93134123ed1c6a240b2501aa07822441
-      internalID: -1004425741
+      spriteID: 3d78a373bcbd3a346923e844e28f89c7
+      internalID: -2093111108
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Start_gif_21
+      name: mepati_2_25
       rect:
         serializedVersion: 2
-        x: 560
+        x: 512
         y: 0
-        width: 560
-        height: 315
+        width: 512
+        height: 288
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -572,20 +656,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae616c66f3b967c498074024fff75e61
-      internalID: -967107441
+      spriteID: d30bbfc15ad289a4ba853dfb21c1ecd3
+      internalID: 666931945
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Start_gif_22
+      name: mepati_2_26
       rect:
         serializedVersion: 2
-        x: 1120
+        x: 1024
         y: 0
-        width: 560
-        height: 315
+        width: 512
+        height: 288
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -593,20 +677,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3134161c46845cb4e9f7bbc3afd6a01e
-      internalID: -490906961
+      spriteID: 00e83b113bcbe654cac3c04bf31b27e0
+      internalID: -1508000960
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Start_gif_23
+      name: mepati_2_27
       rect:
         serializedVersion: 2
-        x: 1680
+        x: 1536
         y: 0
-        width: 560
-        height: 315
+        width: 512
+        height: 288
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -614,8 +698,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eefbdd147ab777040addf60db2105214
-      internalID: 61419410
+      spriteID: 4525e675f98515242bea6165f2a9da55
+      internalID: -807300890
       vertices: []
       indices: 
       edges: []
@@ -623,7 +707,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: b8054329090699843951a0b0b17e494a
+    spriteID: e7f7a323909d9894f8e600d1fe4e0592
     internalID: 0
     vertices: []
     indices: 
@@ -631,30 +715,34 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Start_gif_0: 1623589263
-      Start_gif_1: -416668552
-      Start_gif_10: 92444819
-      Start_gif_11: -1168685650
-      Start_gif_12: -520069797
-      Start_gif_13: 239939220
-      Start_gif_14: -1780362305
-      Start_gif_15: -738828823
-      Start_gif_16: 943248610
-      Start_gif_17: -451063515
-      Start_gif_18: 1285080490
-      Start_gif_19: 1295849344
-      Start_gif_2: 898494618
-      Start_gif_20: -1004425741
-      Start_gif_21: -967107441
-      Start_gif_22: -490906961
-      Start_gif_23: 61419410
-      Start_gif_3: -1294789427
-      Start_gif_4: 998213990
-      Start_gif_5: -831389030
-      Start_gif_6: -1131285235
-      Start_gif_7: 1998609045
-      Start_gif_8: -60722438
-      Start_gif_9: 2133021798
+      mepati_2_0: 971626715
+      mepati_2_1: -525466174
+      mepati_2_10: -1858128864
+      mepati_2_11: 312585086
+      mepati_2_12: 1366371178
+      mepati_2_13: -1792038893
+      mepati_2_14: 2041332158
+      mepati_2_15: 906156863
+      mepati_2_16: 780593734
+      mepati_2_17: -2055937279
+      mepati_2_18: 1404433217
+      mepati_2_19: 300321245
+      mepati_2_2: -389729838
+      mepati_2_20: -248132818
+      mepati_2_21: 1874473543
+      mepati_2_22: -33842459
+      mepati_2_23: 1947918600
+      mepati_2_24: -2093111108
+      mepati_2_25: 666931945
+      mepati_2_26: -1508000960
+      mepati_2_27: -807300890
+      mepati_2_3: -1701280895
+      mepati_2_4: -717457578
+      mepati_2_5: -937024429
+      mepati_2_6: -271157742
+      mepati_2_7: 1891058259
+      mepati_2_8: -116704046
+      mepati_2_9: 1444034927
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -11,9 +11,9 @@ public class TitleSceneScript : MonoBehaviour
 
     private bool Put = false;
     private float Interval;
-    public float ChangeTime = 1.2f;
+    public float ChangeTime = 1.6f;
 
-    GameObject Image;
+    [SerializeField]private GameObject Image;
     private InputAction _pressAnyKeyAction = new InputAction(type: InputActionType.PassThrough, binding: "*/<Button>", interactions: "Press");
    
     private void OnEnable() => _pressAnyKeyAction.Enable();
@@ -25,18 +25,17 @@ public class TitleSceneScript : MonoBehaviour
         anim = gameObject.GetComponent<Animator>();
         Put = false;
         Interval = 0.0f;
-        Image = GameObject.Find("TitleImage");
-
-         }
+        Image.SetActive(true);
+    }
 
     //===== éÂèàóù =====
     void Update()
     {
         if (_pressAnyKeyAction.triggered && !Put)
         {
-            anim.SetBool("GetAnyKey", true);
+            anim.SetTrigger("GetAnyKey");
             Put = true;
-            Destroy(Image);
+            Image.SetActive(false);
         }
 
         else if(Put)

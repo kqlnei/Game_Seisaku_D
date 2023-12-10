@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6a6bd40970cfd6741bd22407f5801095
+guid: 25e89d3b460ad2241a73e3d741f59cf4
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Move_gif_0
+      name: mepati_4_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 630
-        width: 560
-        height: 315
+        y: 288
+        width: 512
+        height: 288
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 348fbdebb50a74c44b28b4413b1c6637
-      internalID: -588022933
+      spriteID: 8dd0b8d13a5526f42bbd7e8fa30e1b6d
+      internalID: -201910157
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Move_gif_1
+      name: mepati_4_1
       rect:
         serializedVersion: 2
-        x: 560
-        y: 630
-        width: 560
-        height: 315
+        x: 512
+        y: 288
+        width: 512
+        height: 288
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eaf050bc0746efb418ba6593e64225e0
-      internalID: 79367373
+      spriteID: 30034a81f22637a47bbb27a8ae00ff3a
+      internalID: -301538631
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Move_gif_2
+      name: mepati_4_2
       rect:
         serializedVersion: 2
-        x: 1120
-        y: 630
-        width: 560
-        height: 315
+        x: 1024
+        y: 288
+        width: 512
+        height: 288
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,125 +173,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 71a5c72c2a22e874c841bcfb7f320aa1
-      internalID: 515429458
+      spriteID: a06bbd5b46cae1e4cb849090ef7c34c0
+      internalID: 41232148
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Move_gif_3
-      rect:
-        serializedVersion: 2
-        x: 1680
-        y: 630
-        width: 560
-        height: 315
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 019b7ec9e55157d4f892433ef1bf98d7
-      internalID: -1784529670
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Move_gif_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 315
-        width: 560
-        height: 315
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fd6f44fc62a3e09429cb0e821e082252
-      internalID: 519336294
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Move_gif_5
-      rect:
-        serializedVersion: 2
-        x: 560
-        y: 315
-        width: 560
-        height: 315
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 88350e4ac540b154e943f42560cf8796
-      internalID: -1154647948
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Move_gif_6
-      rect:
-        serializedVersion: 2
-        x: 1120
-        y: 315
-        width: 560
-        height: 315
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9ed517fbf2cc10340a87de66e21b42aa
-      internalID: -99737532
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Move_gif_7
-      rect:
-        serializedVersion: 2
-        x: 1680
-        y: 315
-        width: 560
-        height: 315
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 090cef6993d8e9c42a32210bf1a15108
-      internalID: -851115628
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Move_gif_8
+      name: mepati_4_3
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 560
-        height: 315
+        width: 512
+        height: 288
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -299,20 +194,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 760887c8c450b484c84d7c9e6ca56d5c
-      internalID: 2075969693
+      spriteID: fed7a098b67d0704cb349251ea87eae3
+      internalID: 1601055274
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Move_gif_9
+      name: mepati_4_4
       rect:
         serializedVersion: 2
-        x: 560
+        x: 512
         y: 0
-        width: 560
-        height: 315
+        width: 512
+        height: 288
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -320,20 +215,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 188ec6f245f5a764f93d9b0c5f19714e
-      internalID: 2037327143
+      spriteID: 08034dea96e4515449ff13d19eeb32b4
+      internalID: -2131546204
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Move_gif_10
+      name: mepati_4_5
       rect:
         serializedVersion: 2
-        x: 1120
+        x: 1024
         y: 0
-        width: 560
-        height: 315
+        width: 512
+        height: 288
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -341,29 +236,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d178e1a4862d2d844ab7ec388cdede4e
-      internalID: 1722093677
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Move_gif_11
-      rect:
-        serializedVersion: 2
-        x: 1680
-        y: 0
-        width: 560
-        height: 315
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9c4700a2e5e453d4491fde3258a20ca7
-      internalID: 1690684346
+      spriteID: 922ec4c4111e6c74f955748f28526cb9
+      internalID: -389891539
       vertices: []
       indices: 
       edges: []
@@ -371,7 +245,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: ed7aa7f08932e6a40b69c6530c972458
+    spriteID: 6e3fd5c85e220cc4b8d99dbc03d516d1
     internalID: 0
     vertices: []
     indices: 
@@ -379,18 +253,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Move_gif_0: -588022933
-      Move_gif_1: 79367373
-      Move_gif_10: 1722093677
-      Move_gif_11: 1690684346
-      Move_gif_2: 515429458
-      Move_gif_3: -1784529670
-      Move_gif_4: 519336294
-      Move_gif_5: -1154647948
-      Move_gif_6: -99737532
-      Move_gif_7: -851115628
-      Move_gif_8: 2075969693
-      Move_gif_9: 2037327143
+      mepati_4_0: -201910157
+      mepati_4_1: -301538631
+      mepati_4_2: 41232148
+      mepati_4_3: 1601055274
+      mepati_4_4: -2131546204
+      mepati_4_5: -389891539
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
