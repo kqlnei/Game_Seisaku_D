@@ -3,7 +3,17 @@ guid: 2fb226cb329fca144b36bbf753bbedca
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: secondwall
+    second: {fileID: 2800000, guid: 6eb5532f2313d324b9414c140ac39493, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: secondwall2
+    second: {fileID: 2800000, guid: f57524f5748d8524a82bd59c3798a836, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
