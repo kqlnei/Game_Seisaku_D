@@ -28,7 +28,7 @@ public class HaerdSoundsScript : MonoBehaviour
     void Update()
     {
         if (Chack == 1)
-            Interval += Time.deltaTime;
+            SetTime += Time.deltaTime;
         if (Chack == 1 && SetTime < Interval)
             Fall();
         if(Chack == 1 && SetTime > Interval)

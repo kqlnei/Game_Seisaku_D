@@ -11,13 +11,15 @@ public class Triangle : MonoBehaviour
     private float minY;
     private float maxY;
     private bool movingUp = true;
-
+    [SerializeField] Color32 color;
     // Start is called before the first frame update
     void Start()
     {
         initialPosition = transform.position;
         minY = initialPosition.y;
         maxY = initialPosition.y + moveDistance;
+        this.gameObject.transform.GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
+        this.gameObject.transform.GetComponent<Renderer>().material.SetColor("_EmissionColor", color);
     }
 
     // Update is called once per frame

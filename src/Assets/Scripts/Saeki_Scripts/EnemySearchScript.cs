@@ -302,7 +302,9 @@ public class EnemySearchScript : MonoBehaviour
             agent.destination = temp_pos;
         }
 
-        if (!agent.pathPending && agent.remainingDistance < 2.3f)
+        //Debug.Log(Vector3.Distance(agent.destination, this.transform.position));
+
+        if (!agent.pathPending && agent.remainingDistance < 4.7f)
             EnemyMove = Move.Stop;
     }
 
