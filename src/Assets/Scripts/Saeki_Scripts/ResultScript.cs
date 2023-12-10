@@ -29,6 +29,9 @@ public class ResultScript : MonoBehaviour
     private bool rightStickEnabled;
 
     private float NeutralValue;
+
+    public AudioClip sound1;
+    AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +40,7 @@ public class ResultScript : MonoBehaviour
         Chenge();
         leftStickEnabled = true;
         rightStickEnabled = true;
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -46,6 +50,8 @@ public class ResultScript : MonoBehaviour
         rightStickValue = Gamepad.current.rightStick.ReadValue().y;
         if (Gamepad.current.aButton.wasPressedThisFrame) //Input.GetKeyDown(KeyCode.Space)
         {
+            GetSE();
+
             switch (Number)
             {
                 case 0:
@@ -74,6 +80,9 @@ public class ResultScript : MonoBehaviour
                 Number--;
                 if (Number < 0)
                     Number = 0;
+                else
+                    GetSE();
+
                 Chenge();
                 leftStickEnabled = false;
                 rightStickEnabled = false;
@@ -87,6 +96,8 @@ public class ResultScript : MonoBehaviour
                 Number++;
                 if (Number > 2)
                     Number = 2;
+                else
+                    GetSE();
                 Chenge();
                 leftStickEnabled = false;
                 rightStickEnabled = false;
@@ -94,6 +105,12 @@ public class ResultScript : MonoBehaviour
         }
 
         NeutralCheck();
+    }
+
+    void GetSE()
+    {
+        audioSource.Stop();
+        audioSource.PlayOneShot(sound1);
     }
 
     void NeutralCheck()

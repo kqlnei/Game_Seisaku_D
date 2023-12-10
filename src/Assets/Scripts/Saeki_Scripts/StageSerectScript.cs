@@ -46,6 +46,9 @@ public class StageSerectScript : MonoBehaviour
     private bool rightStickEnabled;
 
     private float NeutralValue;
+
+    public AudioClip sound1;
+    AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
@@ -54,6 +57,8 @@ public class StageSerectScript : MonoBehaviour
         SerectControll[0] = 0;
         SerectControll[1] = 0;
         SerectComand = 0;
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -64,6 +69,7 @@ public class StageSerectScript : MonoBehaviour
         if (Gamepad.current.aButton.wasPressedThisFrame)
         {
             GetSerect();
+            GetSE();
         }
 
         else if (Gamepad.current.dpad.left.wasPressedThisFrame || Gamepad.current.xButton.wasPressedThisFrame)
@@ -81,6 +87,7 @@ public class StageSerectScript : MonoBehaviour
                 EnterImages = false;
                 EnterImage(EnterImages);
             }
+            GetSE();
         }
 
         else if (Gamepad.current.dpad.up.wasPressedThisFrame || leftStickValue > 0.6f || rightStickValue > 0.6f) //Input.GetKeyDown(KeyCode.UpArrow)
@@ -94,7 +101,11 @@ public class StageSerectScript : MonoBehaviour
                 if (SerectControll[SerectComand] < 0)
                     SerectControll[SerectComand] = 0;
 
+                else
+                    GetSE();
+
                 GetImage(SerectControll[SerectComand]);
+               
             }
         }
 
@@ -104,12 +115,16 @@ public class StageSerectScript : MonoBehaviour
             {
                 leftStickEnabled = false;
                 rightStickEnabled = false;
-                SerectControll[0]++;
+                SerectControll[SerectComand]++;
 
-                if (SerectControll[SerectComand] <= Serectpoints)
+                if (SerectControll[SerectComand] >= Serectpoints)
                     SerectControll[SerectComand] = Serectpoints - 1;
 
+                else
+                    GetSE();
+
                 GetImage(SerectControll[SerectComand]);
+                
             }    
         }
 
@@ -119,7 +134,14 @@ public class StageSerectScript : MonoBehaviour
         {
             Debug.Log(SerectControll[SerectComand]); 
             Debug.Log(SerectComand);
+            GetSE();
         }
+    }
+
+    void GetSE()
+    {
+        audioSource.Stop();
+        audioSource.PlayOneShot(sound1);
     }
 
     void GetImage(int Serect)
