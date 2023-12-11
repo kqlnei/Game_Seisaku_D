@@ -3,7 +3,12 @@ guid: fe2fd53517e54cb4faff93ca0e42c231
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: secfloor
+    second: {fileID: 2800000, guid: c56c13c1cf90f19469d92c5c77614d4c, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
