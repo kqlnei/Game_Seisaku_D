@@ -90,7 +90,7 @@ public class HideScript : MonoBehaviour
     // MoveToTarget メソッド
     IEnumerator MoveToTarget(Vector3 nowPosition, Vector3 targetPosition)
     {
-        targetPosition.y = 2f; // y座標を固定する
+        targetPosition.y = 1f; // y座標を固定する
         isMoving = true; // 移動中のフラグをセット
         transform.LookAt(targetPosition);
 
@@ -119,7 +119,7 @@ public class HideScript : MonoBehaviour
         // 移動が完了したらプレイヤーコントローラーを有効にする
         if (!HideMode)
         {
-            targetPosition.y = 2f; // y座標を固定する
+            targetPosition.y = 1f; // y座標を固定する
             if (playerController != null)
             {
                 playerController.enabled = true;
