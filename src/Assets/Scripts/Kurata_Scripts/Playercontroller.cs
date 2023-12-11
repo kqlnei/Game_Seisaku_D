@@ -14,10 +14,26 @@ public class Playercontroller : MonoBehaviour
     private Quaternion m_Rotation = Quaternion.identity;
     private Vector3 m_Velocity;
 
+
+    public AudioClip walk;
+    private AudioSource audioSource;
+
+    private bool isWalking;
+
+    // 音量の変化にかかる時間
+    public float fadeOutTime = 1.0f;
+
     void Start()
     {
         m_Animator = GetComponent<Animator>();
         m_Rigidbody = GetComponent<Rigidbody>();
+
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+        audioSource.clip = walk;
     }
 
     void FixedUpdate()
@@ -39,6 +55,17 @@ public class Playercontroller : MonoBehaviour
         m_Rotation = Quaternion.LookRotation(desiredForward);
 
         Move();
+
+        // 音の再生とフェードアウト
+        if (isWalking && !audioSource.isPlaying)
+        {
+            audioSource.Play();
+            StartCoroutine(FadeIn(audioSource, fadeOutTime));
+        }
+        else if (!isWalking && audioSource.isPlaying)
+        {
+            StartCoroutine(FadeOut(audioSource, fadeOutTime));
+        }
     }
 
     void Move()
@@ -70,5 +97,37 @@ public class Playercontroller : MonoBehaviour
         Vector3 correctedDirection = correction * inputDirection;
 
         return correctedDirection.normalized;
+    }
+
+     // 音のフェードアウト
+    IEnumerator FadeOut(AudioSource audioSource, float fadeTime)
+    {
+        float startVolume = audioSource.volume;
+
+        while (audioSource.volume > 0)
+        {
+            audioSource.volume -= startVolume * Time.deltaTime / fadeTime;
+            yield return null;
+        }
+
+        audioSource.Stop();
+        audioSource.volume = startVolume;
+    }
+
+    // 音のフェードイン
+    IEnumerator FadeIn(AudioSource audioSource, float fadeTime)
+    {
+        float startVolume = 0.1f; // フェードイン時の開始音量（お好みで調整）
+
+        audioSource.volume = 0;
+        audioSource.Play();
+
+        while (audioSource.volume < startVolume)
+        {
+            audioSource.volume += startVolume * Time.deltaTime / fadeTime;
+            yield return null;
+        }
+
+        audioSource.volume = startVolume;
     }
 }

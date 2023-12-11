@@ -11,8 +11,17 @@ public class Goal : MonoBehaviour
     // ColliderがGoalエリアに入ったらtrueにするフラグ
     private bool goalEntered = false;
     public bool goal = true;
-    // OnTriggerEnterはColliderが他のColliderに入った瞬間に呼ばれる
-    private void OnTriggerEnter(Collider other)
+
+    public AudioClip goal_se;
+    private AudioSource audioSource;
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
+        // OnTriggerEnterはColliderが他のColliderに入った瞬間に呼ばれる
+        private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player")) // もしくは他のタグを使用
         {
@@ -40,6 +49,8 @@ public class Goal : MonoBehaviour
         if (goalText != null && !goalText.gameObject.activeSelf)
         {
             goalText.gameObject.SetActive(true); // テキストを表示する
+
+            audioSource.PlayOneShot(goal_se);
         }
     }
 }

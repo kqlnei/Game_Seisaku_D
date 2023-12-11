@@ -20,6 +20,8 @@ public class KeyAndDoorScript : MonoBehaviour
     private Animator childAnimator;
 
     private BoxCollider doorCollider;
+
+    public bool Door_Open = false;
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Key"))
@@ -56,12 +58,12 @@ public class KeyAndDoorScript : MonoBehaviour
                     childAnimator.SetBool("DoorOpen", true);
                 }
 
+                Door_Open = true;
+
                 doorCollider = other.transform.GetChild(0).GetComponent<BoxCollider>();
 
                 // 2秒後にDisableColliderメソッドを呼び出す
                 Invoke("DisableCollider", 1f);
-
-                //OpenDoor();
             }
         }
     }
@@ -82,10 +84,6 @@ public class KeyAndDoorScript : MonoBehaviour
         }
     }
 
-    void OpenDoor()
-    {
-            Destroy(Door,3f);
-    }
 
     void DisableCollider()
     {

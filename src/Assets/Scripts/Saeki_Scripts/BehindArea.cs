@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 
 public class BehindArea : MonoBehaviour
 {
-    public GameObject textObject;
+    
     public Image image;
     private bool playerInsideArea = false;
 
@@ -20,6 +20,7 @@ public class BehindArea : MonoBehaviour
     public AudioClip sound1, sound2;
     AudioSource audioSource;
 
+    public Image ButtonPushImage;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +33,7 @@ public class BehindArea : MonoBehaviour
         {
             Debug.LogError("Player object not found. Make sure it has the 'Player' tag.");
         }
-        textObject.SetActive(false);
+        ButtonPushImage.gameObject.SetActive(false);
         behindEnter = false;
         playerController = GetComponent<Playercontroller>();
 
@@ -91,7 +92,7 @@ public class BehindArea : MonoBehaviour
 
     void PowTextFalse()
     {
-        textObject.SetActive(false);
+        ButtonPushImage.gameObject.SetActive(false);
     }
 
     void OnTriggerEnter(Collider other)
@@ -101,7 +102,7 @@ public class BehindArea : MonoBehaviour
 
             // behindEnter = true; Debug.Log(behindEnter);
             playerInsideArea = true;
-            textObject.SetActive(true);
+            ButtonPushImage.gameObject.SetActive(true);
             image.gameObject.SetActive(false);
         }
     }
@@ -111,7 +112,7 @@ public class BehindArea : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInsideArea = false;
-            textObject.SetActive(false);
+            ButtonPushImage.gameObject.SetActive(false);
             behindEnter = false;
         }
     }

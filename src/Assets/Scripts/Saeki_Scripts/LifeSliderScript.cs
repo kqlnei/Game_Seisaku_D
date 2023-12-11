@@ -11,7 +11,7 @@ public class LifeSliderScript : MonoBehaviour
 
     [SerializeField] private Slider slider;
 
-    public GameObject escapetextObject;
+    public Image escapeImage;
 
     [SerializeField] GameObject player;
     LifeScript _life;
@@ -22,6 +22,9 @@ public class LifeSliderScript : MonoBehaviour
 
     private bool Damaged;
 
+
+    public AudioClip damage;
+    AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,10 +35,12 @@ public class LifeSliderScript : MonoBehaviour
 
         slider.value = 100;
         originalSliderValue = slider.value;
-        escapetextObject.SetActive(false);
+        escapeImage.gameObject.SetActive(false);
         Damaged = false;
 
         _life = player.GetComponent<LifeScript>();
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -54,7 +59,7 @@ public class LifeSliderScript : MonoBehaviour
 
         if (AllEnter)
         {
-            escapetextObject.SetActive(true);
+            escapeImage.gameObject.SetActive(true);
             Timecount += Time.deltaTime;
 
             float decreaseSpeed = 5f;
@@ -78,6 +83,11 @@ public class LifeSliderScript : MonoBehaviour
                                 Vis[i].TimeOvercontroll = false;
 
                     _life.TakeDamage(1);
+
+
+                    audioSource.PlayOneShot(damage);
+
+
                     slider.value = 100;
 
                     Damaged = true;
@@ -94,7 +104,7 @@ public class LifeSliderScript : MonoBehaviour
         {
             Damaged = false;
             Timecount = 0f;
-            escapetextObject.SetActive(false);
+            escapeImage.gameObject.SetActive(false);
 
             if (slider.value < 100)
                 slider.value = Mathf.Lerp(slider.value, 100, 0.001f);

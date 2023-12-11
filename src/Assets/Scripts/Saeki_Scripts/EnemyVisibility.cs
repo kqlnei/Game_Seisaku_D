@@ -35,14 +35,7 @@ public class EnemyVisibility : MonoBehaviour
 
         //hidetextComponent = HidetextObject.GetComponent<TextMeshProUGUI>();
     }
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            
-            visbilityEnter = true;
-        }
-    }
+    
     // Update is called once per frame
     void Update()
     {
@@ -88,6 +81,16 @@ public class EnemyVisibility : MonoBehaviour
         //else TimeCount = 0.0f;
         */
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+
+            visbilityEnter = true;
+        }
+    }
+
     void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))

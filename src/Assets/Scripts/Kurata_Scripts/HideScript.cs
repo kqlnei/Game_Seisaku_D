@@ -7,7 +7,6 @@ using UnityEngine.InputSystem;
 
 public class HideScript : MonoBehaviour
 {
-    public GameObject HidetextObject;
     private bool isPlayerInside = false;
     private Transform InSidePoint;
     private Transform OutSidePoint;
@@ -19,7 +18,7 @@ public class HideScript : MonoBehaviour
     private Playercontroller playerController;
     private BoxCollider boxCollider;
 
-    private TextMeshProUGUI hidetextComponent;
+    public Image hideImage;
 
     private CapsuleCollider capsuleCollider;
 
@@ -29,8 +28,7 @@ public class HideScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        HidetextObject.SetActive(false);
-        hidetextComponent = HidetextObject.GetComponent<TextMeshProUGUI>();
+        hideImage.gameObject.SetActive(false);
         capsuleCollider = GetComponent<CapsuleCollider>();
         playerController = GetComponent<Playercontroller>();
     }
@@ -65,7 +63,6 @@ public class HideScript : MonoBehaviour
                 boxCollider.isTrigger = true;
             }
             capsuleCollider.enabled = false;
-            hidetextComponent.text = "Press [A] to stop hiding";
             StartCoroutine(MoveToTarget(nowPoint.position, InSidePoint.position));
             
         }
@@ -77,7 +74,6 @@ public class HideScript : MonoBehaviour
                 boxCollider.isTrigger = false;
             }
             capsuleCollider.enabled = true;
-            hidetextComponent.text = "Press [A] button";
             StartCoroutine(MoveToTarget(nowPoint.position, OutSidePoint.position));
             this.transform.GetChild(2).gameObject.SetActive(true);
             if (ArmorAnimator != null)
@@ -138,8 +134,8 @@ public class HideScript : MonoBehaviour
             ArmorAnimator = ArmorTransform.GetComponent<Animator>();
 
             isPlayerInside = true;
-            HidetextObject.SetActive(true);
-            
+            hideImage.gameObject.SetActive(true);
+
             OutSidePoint = col.transform.GetChild(0);
             InSidePoint = col.transform.GetChild(1);
             nowPoint = this.transform;
@@ -149,6 +145,6 @@ public class HideScript : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         isPlayerInside = false;
-        HidetextObject.SetActive(false);
+        hideImage.gameObject.SetActive(false);
     }
 }

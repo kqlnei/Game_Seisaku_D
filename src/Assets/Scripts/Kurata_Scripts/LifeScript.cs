@@ -11,10 +11,14 @@ public class LifeScript : MonoBehaviour
     public Image[] healthImages;
     public GameObject gameOverUI;
 
+    public AudioClip gameover;
+    AudioSource audioSource;
+
     void Start()
     {
         currentHealth = maxHealth;
         UpdateHealthUI();
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void TakeDamage(int damage)
@@ -46,6 +50,8 @@ public class LifeScript : MonoBehaviour
     void ShowGameOverScreen()
     {
         gameOverUI.SetActive(true); // ゲームオーバーUIを表示
+
+        audioSource.PlayOneShot(gameover);
 
         StartCoroutine(ReloadSceneAfterDelay(3.0f)); // 3秒待ってからシーンをリロード
     }
