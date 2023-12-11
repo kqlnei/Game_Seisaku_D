@@ -92,6 +92,7 @@ public class LifeSliderScript : MonoBehaviour
 
         else
         {
+            Damaged = false;
             Timecount = 0f;
             escapetextObject.SetActive(false);
 
