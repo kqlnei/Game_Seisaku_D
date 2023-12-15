@@ -28,8 +28,8 @@ public class ScoreScript : MonoBehaviour
         float Cast_num1 = time * 100;
         int Cast_num2 = (int)Cast_num1;
         float Cast_num3 = (float)Cast_num2;
-        _Time.text = "TIME:" +Cast_num3 / 100;
-        _Life.text = "LIFE :" + life;
+        _Time.text = " " +Cast_num3 / 100;
+        _Life.text = " " + life;
         _Grade.text = grade.Substring(Result(), 1);//H•¶š–Ú‚©‚çH•¶š•ªæ“¾
     }
 

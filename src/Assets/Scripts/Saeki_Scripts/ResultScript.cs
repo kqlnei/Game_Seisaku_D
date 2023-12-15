@@ -7,19 +7,31 @@ using UnityEngine.InputSystem;
 public class ResultScript : MonoBehaviour
 {
     [Header("画像をぶち込む")]
-    [SerializeField] public Image Next_Image;
-    [SerializeField] public Image Restart_Image; 
-    [SerializeField] public Image Serect_Image;
+    [SerializeField] private Image Next_Image;
+    [SerializeField] private Image Restart_Image; 
+    [SerializeField] private Image Serect_Image;
+    [Space]
+    [SerializeField] private Image Next_BrackImage;
+    [SerializeField] private Image Restart_BrackImage;
+    [SerializeField] private Image Serect_BrackImage;
 
     [Header("選択中の色")]
-    public Color32 Serect_Color; 
+    [SerializeField] private Color32 Serect_Color; 
 
     [Header("非選択中の色")]
-    public Color32 Not_Serect_Color;
+    [SerializeField] private Color32 Not_Serect_Color;
 
+    private Color32 Not_Clear_Color = new(0, 0, 0, 127);
+    private Color32 Clear_Color = new(0,0,0,0);
+
+    [Space]
     public int Stage_Number = ScoreManagerScript.Scene_Namber;
 
+    private Vector3 Def = new Vector3(1f, 1f, 1f);
+    private Vector3 Set = new Vector3(1.2f, 1.2f, 1f);
+
     private int Number;
+
     [Header("シーン名")]
     [SerializeField] string[] Scene_Name;
 
@@ -32,6 +44,8 @@ public class ResultScript : MonoBehaviour
 
     public AudioClip sound1;
     AudioSource audioSource;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +55,10 @@ public class ResultScript : MonoBehaviour
         leftStickEnabled = true;
         rightStickEnabled = true;
         audioSource = GetComponent<AudioSource>();
+        Next_Image.rectTransform.localScale = Set;
+        Restart_BrackImage.color = Not_Clear_Color;
+        Serect_BrackImage.color = Not_Clear_Color;
+
     }
 
     // Update is called once per frame
@@ -136,6 +154,14 @@ public class ResultScript : MonoBehaviour
                     Next_Image.color = Serect_Color;
                     Restart_Image.color = Not_Serect_Color;
                     Serect_Image.color = Not_Serect_Color;
+
+                    Next_Image.rectTransform.localScale = Set;
+                    Restart_Image.rectTransform.localScale = Def;
+                    Serect_Image.rectTransform.localScale = Def;
+
+                    Next_BrackImage.color = Clear_Color;
+                    Restart_BrackImage.color = Not_Clear_Color;
+                    Serect_BrackImage.color = Not_Clear_Color;
                 }
                 break;
             case 1:
@@ -143,6 +169,14 @@ public class ResultScript : MonoBehaviour
                     Next_Image.color = Not_Serect_Color;
                     Restart_Image.color = Serect_Color;
                     Serect_Image.color = Not_Serect_Color;
+
+                    Next_Image.rectTransform.localScale = Def;
+                    Restart_Image.rectTransform.localScale = Set;
+                    Serect_Image.rectTransform.localScale = Def;
+
+                    Next_BrackImage.color = Not_Clear_Color;
+                    Restart_BrackImage.color = Clear_Color;
+                    Serect_BrackImage.color = Not_Clear_Color;
                 }
                 break;
             case 2:
@@ -150,6 +184,14 @@ public class ResultScript : MonoBehaviour
                     Next_Image.color = Not_Serect_Color;
                     Restart_Image.color = Not_Serect_Color;
                     Serect_Image.color = Serect_Color;
+
+                    Next_Image.rectTransform.localScale = Def;
+                    Restart_Image.rectTransform.localScale = Def;
+                    Serect_Image.rectTransform.localScale = Set;
+
+                    Next_BrackImage.color = Not_Clear_Color;
+                    Restart_BrackImage.color = Not_Clear_Color;
+                    Serect_BrackImage.color = Clear_Color;
                 }
                 break;
         }
