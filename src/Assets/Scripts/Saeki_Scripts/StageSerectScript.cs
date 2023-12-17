@@ -239,6 +239,5 @@ public class StageSerectScript : MonoBehaviour
         {
             rightStickEnabled = true;
         }
-
     }
 }

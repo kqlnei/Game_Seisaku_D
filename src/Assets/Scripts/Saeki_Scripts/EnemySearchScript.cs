@@ -37,7 +37,7 @@ public class EnemySearchScript : MonoBehaviour
 
     [Space]
     [Header("í«ê’ÇÃåpë±éûä‘ (0.1fÅ`)")]
-    [SerializeField] private float ChaseInterval = 2.0f;
+    [SerializeField] private float ChaseInterval = 0.7f;
 
     [Space]
     [Header("çsìÆå„ÇÃë“ã@éûä‘ (0.1fÅ`)")]
@@ -112,6 +112,7 @@ public class EnemySearchScript : MonoBehaviour
 
         anim.SetBool("Surp", false);
         anim.SetBool("Stoping", false);
+        anim.SetBool("Chase", false);
         blendshape_SMR = Moush.GetComponent<SkinnedMeshRenderer>();
 
         RandamBack = false;
@@ -148,12 +149,14 @@ public class EnemySearchScript : MonoBehaviour
 
         if (EnemyMove == Move.None)
         {
+            anim.SetBool("Chase", false);
             anim.SetBool("Stoping", false);
             NoneCommand();
         }
 
         else if (EnemyMove == Move.Escape)
         {
+            anim.SetBool("Chase", false);
             anim.SetBool("Surp", true);
             blendshape_SMR.SetBlendShapeWeight(0, 0);
             anim.SetBool("Stoping", false);
@@ -162,30 +165,36 @@ public class EnemySearchScript : MonoBehaviour
 
         else if (EnemyMove == Move.Stop)
         {
+            
             anim.SetBool("Stoping", true);
             StopCommand();
         }
 
         else if (EnemyMove == Move.Light)
         {
+            anim.SetBool("Chase", false);
             anim.SetBool("Stoping", true);
             LightCommand();
         }
 
         else if (EnemyMove == Move.Heard)
         {
+            anim.SetBool("Chase", false);
+            anim.SetBool("Chase", false);
             anim.SetBool("Stoping", false);
             HeardCommand();
         }
 
         else if (EnemyMove == Move.Chase)
         {
+            anim.SetBool("Chase", true);
             anim.SetBool("Stoping", false);
             ChaseCommand();
         }
 
         else if (EnemyMove == Move.Search)
         {
+            anim.SetBool("Chase", false);
             anim.SetBool("Stoping", false);
             anim.SetBool("Surp", false);
             blendshape_SMR.SetBlendShapeWeight(0, 100);
@@ -205,6 +214,9 @@ public class EnemySearchScript : MonoBehaviour
             BackRote_y = 0;
             Interval = 0.0f;
         }
+
+        if (agent.speed != Speed)
+            agent.speed = Speed;
 
         Interval += Time.deltaTime;
 
@@ -237,8 +249,8 @@ public class EnemySearchScript : MonoBehaviour
             Interval = 0.0f;
         }
 
-        if (agent.speed != Speed)
-            agent.speed = Speed;
+        if (agent.speed <= Speed)
+            agent.speed = Speed * 1.1f;
 
         if (!_VisbilityTrigger.visbilityEnter)
             Interval += Time.deltaTime;
@@ -246,6 +258,14 @@ public class EnemySearchScript : MonoBehaviour
             Interval = 0.0f;
 
         agent.destination = player.transform.position;
+
+        Vector3 direction = player.transform.position - transform.position;
+        direction.y = 0.0f;
+        // É^Å[ÉQÉbÉgÇÃï˚å¸Ç÷ÇÃâÒì]
+
+        Quaternion lookRotation = Quaternion.LookRotation(direction, Vector3.up);
+        transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, 0.3f);
+
         //Debug.Log(player.transform.position);
         if (!_VisbilityTrigger.visbilityEnter && Interval > ChaseInterval)
         {
