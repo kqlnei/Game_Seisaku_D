@@ -146,11 +146,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53bd73d7471fa9343969657549119c95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textObject: {fileID: 0}
   image: {fileID: 0}
   behindEnter: 0
   sound1: {fileID: 8300000, guid: b5465ab0b1d795c4aa963497a9ab1080, type: 3}
   sound2: {fileID: 8300000, guid: 76a5e6d82936f1846bfcaa16585f9792, type: 3}
+  ButtonPushImage: {fileID: 0}
 --- !u!227 &3248019688556797396
 BillboardRenderer:
   m_ObjectHideFlags: 0
@@ -699,6 +699,7 @@ GameObject:
   - component: {fileID: 7324933209456261388}
   - component: {fileID: 825632836844184676}
   - component: {fileID: 907665683175319527}
+  - component: {fileID: 149691703721589188}
   m_Layer: 0
   m_Name: pCylinder1 (1)
   m_TagString: Untagged
@@ -771,6 +772,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &149691703721589188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5090620104401158961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14c8909e54ba813468a8117a848e5f7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Mat_Y: {fileID: 2100000, guid: 4a70715a08bde214799592f95b73befb, type: 2}
+  Mat_R: {fileID: 2100000, guid: a1e7ada1f2973444c8efa55f6fabd9bc, type: 2}
+  Visbility: {fileID: 6564157374385994716}
 --- !u!1 &6564157374385994716
 GameObject:
   m_ObjectHideFlags: 0
