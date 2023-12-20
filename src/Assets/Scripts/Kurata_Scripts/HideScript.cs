@@ -17,7 +17,7 @@ public class HideScript : MonoBehaviour
 
     private Playercontroller playerController;
     private BoxCollider boxCollider;
-
+    
     public Image hideImage;
 
     private CapsuleCollider capsuleCollider;
