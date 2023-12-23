@@ -3392,7 +3392,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-116984
+  m_Name: pb_Mesh-7850
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -19371,7 +19371,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1603322384
 RectTransform:
   m_ObjectHideFlags: 0
@@ -27175,6 +27175,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: abb827523822e4549b4b75d0893a238c, type: 3}
     - target: {fileID: 1231894218519962420, guid: 156fa40112c89b3408cba2c64eae6b7a, type: 3}
+      propertyPath: maxHealth
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1231894218519962420, guid: 156fa40112c89b3408cba2c64eae6b7a, type: 3}
       propertyPath: gameOverUI
       value: 
       objectReference: {fileID: 2141525741}
@@ -27460,7 +27464,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4246206824670531387, guid: 81d2c3dc773867040a47d3779365f014, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 17.27
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4246206824670531387, guid: 81d2c3dc773867040a47d3779365f014, type: 3}
       propertyPath: m_LocalPosition.z
@@ -28431,7 +28435,7 @@ PrefabInstance:
       objectReference: {fileID: 1146837411}
     - target: {fileID: 5075713173784674492, guid: f0e5c149a7605de4e860ed7d2756e792, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 15.6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5726031004601591130, guid: f0e5c149a7605de4e860ed7d2756e792, type: 3}
       propertyPath: m_CastShadows
