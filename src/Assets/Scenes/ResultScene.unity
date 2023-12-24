@@ -971,7 +971,7 @@ MonoBehaviour:
   _Time: {fileID: 201794227}
   _Life: {fileID: 2082228733}
   _Grade: {fileID: 562562492}
-  Citerion_Time: 60
+  Citerion_Time: 30
 --- !u!1 &808596438
 GameObject:
   m_ObjectHideFlags: 0

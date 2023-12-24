@@ -17,8 +17,13 @@ public class RespawnScript : MonoBehaviour
         Points = new Vector3[Enemis.Length];
         for (int i = 0; i < Enemis.Length; i++)
             RespawnTime[i] = 0f;
-    }
 
+        if (SecretComandScript.Comand)
+        {
+            _distance = 0.1f;
+            _Interbal = 7f;
+        }
+    }
     // Update is called once per frame
     void Update()
     {

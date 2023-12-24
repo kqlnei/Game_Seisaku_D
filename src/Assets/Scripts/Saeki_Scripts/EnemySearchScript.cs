@@ -107,7 +107,7 @@ public class EnemySearchScript : MonoBehaviour
 
         destPoint = 0;
         agent.destination = Waypoints[destPoint].position;
-        agent.speed = Speed;
+       
         MadeItem = true;
 
         anim.SetBool("Surp", false);
@@ -116,6 +116,16 @@ public class EnemySearchScript : MonoBehaviour
         blendshape_SMR = Moush.GetComponent<SkinnedMeshRenderer>();
 
         RandamBack = false;
+
+        if (SecretComandScript.Comand)
+        {
+            Speed = 9999f;
+            StopRotation = 9999f;
+            ChaseInterval = 9999f;
+            StopInterval = 0.1f;
+        }
+
+        agent.speed = Speed;
     }
     void ChangeMove()
     {
@@ -194,8 +204,8 @@ public class EnemySearchScript : MonoBehaviour
 
         else if (EnemyMove == Move.Search)
         {
-            anim.SetBool("Chase", false);
             anim.SetBool("Stoping", false);
+            anim.SetBool("Chase", false);
             anim.SetBool("Surp", false);
             blendshape_SMR.SetBlendShapeWeight(0, 100);
             SearchCommand();
@@ -380,7 +390,7 @@ public class EnemySearchScript : MonoBehaviour
             BackRote_y = 0;
             Interval = 0.0f;
 
-            agent.speed = 2.0f;
+            agent.speed = Speed / 3 * 2;
 
             agent.destination = transform.position - (player.transform.position - transform.position) * 2;
             Invoke("ActiveChange", 3.0f);
@@ -399,7 +409,7 @@ public class EnemySearchScript : MonoBehaviour
     void CreateItem()
     {
         MadeItem = false;
-        GameObject obj = Instantiate(DropItem, transform.position, Quaternion.identity);
+        GameObject obj = Instantiate(DropItem, new Vector3(transform.position.x,-1.78f, transform.position.z), Quaternion.identity);
     }
 
     void GotoNextPoint()

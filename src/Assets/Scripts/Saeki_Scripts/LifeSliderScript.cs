@@ -9,7 +9,7 @@ public class LifeSliderScript : MonoBehaviour
     [SerializeField] private GameObject[] Visibility;
     private EnemyVisibility[] Vis;
 
-    [SerializeField] private Slider slider;
+    [SerializeField] public Slider slider;
 
     public Image escapeImage;
 
@@ -62,7 +62,7 @@ public class LifeSliderScript : MonoBehaviour
             escapeImage.gameObject.SetActive(true);
             Timecount += Time.deltaTime;
 
-            float decreaseSpeed = 5f;
+            float decreaseSpeed = 6f;
             float targetValue = slider.value - decreaseSpeed;
 
             if (Damaged)
@@ -72,7 +72,7 @@ public class LifeSliderScript : MonoBehaviour
             }
             else
                 slider.value = Mathf.Lerp(slider.value, targetValue, Time.deltaTime * decreaseSpeed);
-
+            Debug.Log(slider.value);
             if (_life.currentHealth > 0)
             {
                 if (slider.value < 1)
@@ -83,10 +83,8 @@ public class LifeSliderScript : MonoBehaviour
                                 Vis[i].TimeOvercontroll = false;
 
                     _life.TakeDamage(1);
-
-
+                    //Debug.Log(Timecount);
                     audioSource.PlayOneShot(damage);
-
 
                     slider.value = 100;
 
@@ -106,12 +104,11 @@ public class LifeSliderScript : MonoBehaviour
             Timecount = 0f;
             escapeImage.gameObject.SetActive(false);
 
-            if (slider.value < 100)
-                slider.value = Mathf.Lerp(slider.value, 100, 0.001f);
-            
-            else
-                slider.value = 100;
-        }
+            if (slider.value < 1)
+                slider.value = 0;
 
+            //else if (slider.value < 100)
+                //slider.value = Mathf.Lerp(slider.value, 100, 0.001f);
+        }
     }
 }

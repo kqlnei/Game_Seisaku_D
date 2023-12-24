@@ -8,7 +8,7 @@ public class ScoreScript : MonoBehaviour
     [SerializeField] TextMeshProUGUI _Time;
     [SerializeField] TextMeshProUGUI _Life;
     [SerializeField] TextMeshProUGUI _Grade;
-    
+
     float time = ScoreManagerScript.Play_Time;
     int life = ScoreManagerScript.Player_Life;
 
@@ -38,7 +38,7 @@ public class ScoreScript : MonoBehaviour
         if (life == 0)
             return 0;
 
-        float Summation = time * (4 - (float)life);
+        float Summation = time * ((200f - (float)life) / 100f);
 
         float _Score = Summation / Citerion_Time;
 

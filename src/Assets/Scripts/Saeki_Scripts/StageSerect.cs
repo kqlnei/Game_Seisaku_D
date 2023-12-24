@@ -11,6 +11,8 @@ public class StageSerect : MonoBehaviour
     private bool leftStickEnabled;
     private bool rightStickEnabled;
 
+    private bool ComandChack;
+
     [Header("ステージ画像")]
     [SerializeField] private Image[] Stage_Image;
     [Space]
@@ -25,6 +27,7 @@ public class StageSerect : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ComandChack = false;
         NeutralValue = 0.15f;
         SerectComand = 0;
 
@@ -52,7 +55,8 @@ public class StageSerect : MonoBehaviour
 
         if (Gamepad.current.aButton.wasPressedThisFrame)
         {
-            GetSerect(SerectComand);
+            Invoke("GetSerect",0.1f);
+            
             GetSE();
         }
 
@@ -110,19 +114,25 @@ public class StageSerect : MonoBehaviour
 
         NeutralCheck();
     }
-    void GetSerect(int Number)
+    void GetSerect()
     {
-        if (Number == 0)
+        if(SecretComandScript.Comand != ComandChack)
+        {
+            ComandChack = !ComandChack;
+            Debug.Log(SecretComandScript.Comand);
+        }
+
+        else if (SerectComand == 0)
         {
             SceneManager.LoadSceneAsync("Tutorial_Stage");
         }
 
-        else if (Number == 1)
+        else if (SerectComand == 1)
         {
             SceneManager.LoadSceneAsync("Second_Stage");
         }
 
-        else if (Number == 2)
+        else if (SerectComand == 2)
         {
             
         }

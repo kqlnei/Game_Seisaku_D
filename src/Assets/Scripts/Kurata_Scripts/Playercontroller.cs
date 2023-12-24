@@ -34,6 +34,11 @@ public class Playercontroller : MonoBehaviour
             audioSource = gameObject.AddComponent<AudioSource>();
         }
         audioSource.clip = walk;
+        if (SecretComandScript.Comand)
+        {
+            turnSpeed = 30f;
+            moveSpeed = 7.5f;
+        }
     }
 
     void FixedUpdate()

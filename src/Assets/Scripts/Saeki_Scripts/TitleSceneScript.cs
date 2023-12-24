@@ -14,6 +14,10 @@ public class TitleSceneScript : MonoBehaviour
     public float ChangeTime = 1.6f;
 
     [SerializeField]private GameObject Image;
+
+    public AudioClip sound1;
+    AudioSource audioSource;
+    
     private InputAction _pressAnyKeyAction = new InputAction(type: InputActionType.PassThrough, binding: "*/<Button>", interactions: "Press");
    
     private void OnEnable() => _pressAnyKeyAction.Enable();
@@ -26,6 +30,7 @@ public class TitleSceneScript : MonoBehaviour
         Put = false;
         Interval = 0.0f;
         Image.SetActive(true);
+        audioSource = GetComponent<AudioSource>();
     }
 
     //===== éÂèàóù =====
@@ -33,9 +38,11 @@ public class TitleSceneScript : MonoBehaviour
     {
         if (_pressAnyKeyAction.triggered && !Put)
         {
+            audioSource.PlayOneShot(sound1);
             anim.SetTrigger("GetAnyKey");
             Put = true;
             Image.SetActive(false);
+            
         }
 
         else if(Put)

@@ -10,7 +10,7 @@ public class LifeScript : MonoBehaviour
     public int currentHealth;
     public Image[] healthImages;
     public GameObject gameOverUI;
-
+    public GameObject _Slider;
     public AudioClip gameover;
     AudioSource audioSource;
 
@@ -30,6 +30,14 @@ public class LifeScript : MonoBehaviour
         {
             ShowGameOverScreen();
         }
+    }
+
+    public float TakeLife()
+    {
+        float a;
+        LifeSliderScript _SliderS = _Slider.GetComponent<LifeSliderScript>();
+        a = _SliderS.slider.value;
+        return a;
     }
 
     void UpdateHealthUI()

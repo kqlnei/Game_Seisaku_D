@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class ScoreManagerScript : MonoBehaviour
 {
     [Header("Å¶public staticÇégóp")]
@@ -43,7 +43,12 @@ public class ScoreManagerScript : MonoBehaviour
         }
         else
         {
-            Player_Life = _Health.currentHealth;
+            Player_Life = (int)_Health.TakeLife();
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 }
