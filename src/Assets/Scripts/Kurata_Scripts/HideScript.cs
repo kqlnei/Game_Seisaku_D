@@ -24,13 +24,20 @@ public class HideScript : MonoBehaviour
 
     private bool isMoving = false; // 移動中のフラグ
 
+    public AudioClip Armorse;
+    public AudioClip Armorvc;
+    private AudioSource audioSource;
+    public AudioSource audioSource1;
+
     Animator ArmorAnimator;
+    private Animator m_Animator;
     // Start is called before the first frame update
     void Start()
     {
         hideImage.gameObject.SetActive(false);
         capsuleCollider = GetComponent<CapsuleCollider>();
         playerController = GetComponent<Playercontroller>();
+        m_Animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -62,24 +69,29 @@ public class HideScript : MonoBehaviour
             {
                 boxCollider.isTrigger = true;
             }
+            m_Animator.SetBool("Hide", true);
             capsuleCollider.enabled = false;
             StartCoroutine(MoveToTarget(nowPoint.position, InSidePoint.position));
-            
+            audioSource.Play();
+            audioSource1.PlayOneShot(Armorvc);
+
         }
         else
         {
-           
             if (boxCollider != null)
             {
                 boxCollider.isTrigger = false;
             }
             capsuleCollider.enabled = true;
+            m_Animator.SetBool("Hide", true);
             StartCoroutine(MoveToTarget(nowPoint.position, OutSidePoint.position));
             this.transform.GetChild(2).gameObject.SetActive(true);
             if (ArmorAnimator != null)
             {
                 ArmorAnimator.SetBool("possession", false);
             }
+            audioSource.Stop();
+            audioSource1.PlayOneShot(Armorvc);
         }
     }
 
@@ -101,6 +113,8 @@ public class HideScript : MonoBehaviour
 
         transform.position = targetPosition; // 最終的な位置を目標の位置に設定
         isMoving = false; // 移動が終わったらフラグをリセット
+        m_Animator.SetBool("Hide", false);
+
 
         if (HideMode)
         {
@@ -139,6 +153,10 @@ public class HideScript : MonoBehaviour
             OutSidePoint = col.transform.GetChild(0);
             InSidePoint = col.transform.GetChild(1);
             nowPoint = this.transform;
+
+
+            audioSource = col.gameObject.GetComponent<AudioSource>();
+            audioSource.clip = Armorse;
         }
     }
 
