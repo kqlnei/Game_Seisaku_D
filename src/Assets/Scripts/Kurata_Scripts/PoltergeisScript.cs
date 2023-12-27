@@ -20,10 +20,20 @@ public class PoltergeisScript : MonoBehaviour
     private float glassBreakDuration = 2f; // 必要に応じて時間を調整してください
 
     public Image polImage;
+
+    public AudioClip Poltervc;
+    
+    public AudioSource audioSource1;
+
+    private Animator m_Animator;
+
+    private Transform parentTransform;
+    private Transform childTransform;
     // Start is called before the first frame update
     void Start()
     {
         polImage.gameObject.SetActive(false);
+        m_Animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -34,17 +44,29 @@ public class PoltergeisScript : MonoBehaviour
             // プレイヤーがエリア内にいる場合の処理
             if (Gamepad.current.buttonSouth.wasReleasedThisFrame)// || Input.GetKeyDown(KeyCode.Z)
             {
+                
                 if (parentAnimator != null)
                 {
                     parentAnimator.SetBool("isFall", true);
+                   
                     polImage.gameObject.SetActive(false);
                     if (sphereCollider != null)
                     {
                         sphereCollider.enabled = true;
                     }
                 }
+
+                if (childTransform != null)
+                {
+                    transform.LookAt(childTransform);
+                }
+
                 glass_break = true;
+                audioSource1.PlayOneShot(Poltervc);
+                isPlayerInside = false;
+                m_Animator.SetBool("Pol", true);
             }
+           
         }
 
         // glass_breakがtrueの場合、一定時間後にリセット
@@ -57,6 +79,7 @@ public class PoltergeisScript : MonoBehaviour
                 glass_break = false;
                 glassBreakTimer = 0f; // タイマーをリセット
             }
+            //m_Animator.SetBool("Hide", false);
         }
     }
 
@@ -65,6 +88,7 @@ public class PoltergeisScript : MonoBehaviour
         if (col.gameObject.tag == "Pol")
         {
             polImage.gameObject.SetActive(true);
+            isPlayerInside = true;
         }
     }
 
@@ -72,11 +96,9 @@ public class PoltergeisScript : MonoBehaviour
     {
         if (col.gameObject.tag == "Pol")
         {
-            isPlayerInside = true;
-           
-
+            
             // 接触したオブジェクトの親オブジェクトを取得
-            Transform parentTransform = col.transform.parent;
+            parentTransform = col.transform.parent;
 
             // 親オブジェクトにアタッチされているAnimatorコンポーネントを取得
             parentAnimator = parentTransform.GetComponent<Animator>();
@@ -84,6 +106,10 @@ public class PoltergeisScript : MonoBehaviour
             Transform FallCpllider = parentTransform.GetChild(4);
             Debug.Log(FallCpllider);
             sphereCollider = FallCpllider.GetComponent<SphereCollider>();
+            
+            // 1個下の子オブジェクトのTransformを取得
+            childTransform = parentTransform.transform.GetChild(0);
+            Debug.Log(childTransform);
 
         }
     }

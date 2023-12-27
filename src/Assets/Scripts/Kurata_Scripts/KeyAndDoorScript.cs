@@ -22,6 +22,12 @@ public class KeyAndDoorScript : MonoBehaviour
     private BoxCollider doorCollider;
 
     public bool Door_Open = false;
+
+    public AudioClip Keyse;
+    public AudioClip Lockse;
+    public AudioSource audioSource_Key;
+    public AudioSource audioSource_Lock;
+
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Key"))
@@ -31,6 +37,7 @@ public class KeyAndDoorScript : MonoBehaviour
             // ƒvƒŒƒCƒ„[‚Ì‚Á‚Ä‚¢‚éŒ®‚ğíœ
             Destroy(other.gameObject);
             KeyImages[collectedKeys - 1].enabled = true;
+            audioSource_Key.PlayOneShot(Keyse);
         }
 
         if (other.CompareTag("Door"))
@@ -81,6 +88,7 @@ public class KeyAndDoorScript : MonoBehaviour
                     parentRigidbody.isKinematic = false;
                 }
             }
+            audioSource_Lock.PlayOneShot(Lockse);
         }
     }
 
