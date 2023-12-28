@@ -116,4 +116,13 @@ public class BehindArea : MonoBehaviour
             behindEnter = false;
         }
     }
+
+    void OnDestroy()
+    {
+        // オブジェクトが破棄されるときに実行される処理
+        playerInsideArea = false;
+        ButtonPushImage.gameObject.SetActive(false);
+        behindEnter = false;
+        Debug.Log("OnDestroy");
+    }
 }

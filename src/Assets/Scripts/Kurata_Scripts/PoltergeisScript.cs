@@ -78,8 +78,9 @@ public class PoltergeisScript : MonoBehaviour
             {
                 glass_break = false;
                 glassBreakTimer = 0f; // タイマーをリセット
+                m_Animator.SetBool("Pol", false);
             }
-            //m_Animator.SetBool("Hide", false);
+            
         }
     }
 

@@ -13,6 +13,8 @@ public class KeyAndDoorScript : MonoBehaviour
 
     private int collectedKeys = 0;
 
+    private int Lockse_sum = 0;
+
     private bool keysCollected = false;
 
     public Image[] KeyImages;
@@ -74,6 +76,7 @@ public class KeyAndDoorScript : MonoBehaviour
             }
         }
     }
+
     void UnlockDoor()
     {
         if(keysCollected)
@@ -88,7 +91,12 @@ public class KeyAndDoorScript : MonoBehaviour
                     parentRigidbody.isKinematic = false;
                 }
             }
-            audioSource_Lock.PlayOneShot(Lockse);
+            
+            if(collectedKeys == Lockse_sum+1)
+            {
+                audioSource_Lock.PlayOneShot(Lockse);
+                Lockse_sum++;
+            }
         }
     }
 
