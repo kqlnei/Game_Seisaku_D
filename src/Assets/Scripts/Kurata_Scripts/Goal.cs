@@ -8,7 +8,7 @@ using Cinemachine;
 
 public class Goal : MonoBehaviour
 {
-    public TMP_Text goalText;
+    public Image goalImage;
     // ColliderがGoalエリアに入ったらtrueにするフラグ
     private bool goalEntered = false;
     public bool goal = true;
@@ -58,9 +58,9 @@ public class Goal : MonoBehaviour
     private void ShowGoalText()
     {
         // goalTextが存在し、まだ表示されていない場合
-        if (goalText != null && !goalText.gameObject.activeSelf)
+        if (goalImage != null && !goalImage.gameObject.activeSelf)
         {
-            goalText.gameObject.SetActive(true); // テキストを表示する
+            goalImage.gameObject.SetActive(true); // テキストを表示する
 
             audioSource.PlayOneShot(goal_se);
         }

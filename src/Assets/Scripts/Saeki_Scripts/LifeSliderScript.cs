@@ -6,8 +6,8 @@ using TMPro;
 
 public class LifeSliderScript : MonoBehaviour
 {
-    [SerializeField] private GameObject[] Visibility;
-    private EnemyVisibility[] Vis;
+    [SerializeField] private GameObject[] Light;
+    private EnemyLight[] Lig;
 
     [SerializeField] public Slider slider;
 
@@ -28,10 +28,10 @@ public class LifeSliderScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Vis = new EnemyVisibility[Visibility.Length];
+        Lig = new EnemyLight[Light.Length];
 
-        for (int i = 0; i < Vis.Length; i++)
-            Vis[i] = Visibility[i].GetComponent<EnemyVisibility>();
+        for (int i = 0; i < Lig.Length; i++)
+            Lig[i] = Light[i].GetComponent<EnemyLight>();
 
         slider.value = 100;
         originalSliderValue = slider.value;
@@ -48,9 +48,9 @@ public class LifeSliderScript : MonoBehaviour
     {
         bool AllEnter = false;
 
-        for (int i = 0; i < Visibility.Length; i++)
-            if(Visibility[i].activeSelf)
-                if(Vis[i].visbilityEnter) 
+        for (int i = 0; i < Light.Length; i++)
+            if(Light[i].activeSelf)
+                if(Lig[i].lightEnter) 
                 { 
                     AllEnter = true; break; 
                 }
@@ -77,10 +77,10 @@ public class LifeSliderScript : MonoBehaviour
             {
                 if (slider.value < 1)
                 {
-                    for(int i = 0; i < Visibility.Length; i++)
-                        if (Visibility[i].activeSelf)
-                            if (Vis[i].visbilityEnter)
-                                Vis[i].TimeOvercontroll = false;
+                    for(int i = 0; i < Light.Length; i++)
+                        if (Light[i].activeSelf)
+                            if (Lig[i].lightEnter)
+                                Lig[i].TimeOvercontroll = false;
 
                     _life.TakeDamage(1);
                     //Debug.Log(Timecount);

@@ -62,6 +62,10 @@ public class EnemySearchScript : MonoBehaviour
     [SerializeField] private Animator anim;
 
     [Space]
+    [Header("アニメーター")]
+    [SerializeField] private GameObject EscapeEffect;
+
+    [Space]
     [Space]
     [Header("行動　(基本動かさない)")]
     public Move EnemyMove; 
@@ -70,8 +74,8 @@ public class EnemySearchScript : MonoBehaviour
 
     [Space]
     [Header("トリガーの名称はすべて分けてほしい")]
-    //[SerializeField] private GameObject Light;
-    //EnemyLight _LIghtTrigger;
+    [SerializeField] private GameObject Light;
+    EnemyLight _LightTrigger;
     [SerializeField] private GameObject Visbility;
     EnemyVisibility _VisbilityTrigger;
     [SerializeField] private GameObject Behind;
@@ -94,7 +98,7 @@ public class EnemySearchScript : MonoBehaviour
 
         agent.autoBraking = false;
 
-        //_LIghtTrigger = Light.GetComponent<EnemyLight>();
+        _LightTrigger = Light.GetComponent<EnemyLight>();
 
         _VisbilityTrigger = Visbility.GetComponent<EnemyVisibility>();
 
@@ -126,25 +130,34 @@ public class EnemySearchScript : MonoBehaviour
         }
 
         agent.speed = Speed;
+        EscapeEffect.SetActive(false);
     }
     void ChangeMove()
     {
-        Debug.Log(_VisbilityTrigger.TimeOvercontroll);
-        if (!_VisbilityTrigger.TimeOvercontroll && EnemyMove != Move.Escape && EnemyMove != Move.None)
+        //Debug.Log(_LightTrigger.TimeOvercontroll);
+        if (!_LightTrigger.TimeOvercontroll && EnemyMove != Move.Escape && EnemyMove != Move.None)
         {
             EnemyMove = Move.Light;
             return;
         }
 
-        if (!_Hide.HideMode &&_VisbilityTrigger.visbilityEnter && EnemyMove != Move.Escape && EnemyMove != Move.None)
+        if (_VisbilityTrigger.visbilityEnter &&!_LightTrigger.lightEnter)
+        {
+            _LightTrigger.lightEnter = true;
+        }
+
+        if (!_Hide.HideMode && _LightTrigger.lightEnter && EnemyMove != Move.Escape && EnemyMove != Move.None)
         {
             if (BeforeMove != Move.Light)
                 EnemyMove = Move.Chase;
             return;
         }
         else
+        {
             _VisbilityTrigger.visbilityEnter = false;
-
+            _LightTrigger.lightEnter = false;
+        }
+            
         if (_BehindTrigger.behindEnter && EnemyMove != Move.None)
         {
             EnemyMove = Move.Escape;
@@ -230,8 +243,11 @@ public class EnemySearchScript : MonoBehaviour
 
         Interval += Time.deltaTime;
 
-        if (Interval > 3f)
+        if (Interval > 2.99f)
+        {
+            EscapeEffect.SetActive(false);
             EnemyMove = Move.Search;
+        }
     }
     void SearchCommand()
     {
@@ -262,7 +278,7 @@ public class EnemySearchScript : MonoBehaviour
         if (agent.speed <= Speed)
             agent.speed = Speed * 1.1f;
 
-        if (!_VisbilityTrigger.visbilityEnter)
+        if (!_LightTrigger.lightEnter)
             Interval += Time.deltaTime;
         else
             Interval = 0.0f;
@@ -277,7 +293,7 @@ public class EnemySearchScript : MonoBehaviour
         transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, 0.3f);
 
         //Debug.Log(player.transform.position);
-        if (!_VisbilityTrigger.visbilityEnter && Interval > ChaseInterval)
+        if (!_LightTrigger.lightEnter && Interval > ChaseInterval)
         {
             Interval = 0.0f;
             EnemyMove = Move.Stop;
@@ -303,7 +319,7 @@ public class EnemySearchScript : MonoBehaviour
 
         //agent.destination = transform.position;
 
-        if (!_VisbilityTrigger.visbilityEnter)
+        if (!_LightTrigger.lightEnter)
         {
             EnemyMove = Move.Stop;
         }
@@ -393,8 +409,9 @@ public class EnemySearchScript : MonoBehaviour
             agent.speed = Speed / 3 * 2;
 
             agent.destination = transform.position - (player.transform.position - transform.position) * 2;
-            Invoke("ActiveChange", 3.0f);
+            Invoke("ActiveChange", 3.1f);
             EnemyMove = Move.None;
+            EscapeEffect.SetActive(true);
         }
 
         if (DropItem && BeforeMove != EnemyMove && MadeItem)
@@ -403,13 +420,14 @@ public class EnemySearchScript : MonoBehaviour
 
     void ActiveChange()
     {
+        EscapeEffect.SetActive(false);
         this.gameObject.SetActive(false);
     }
 
     void CreateItem()
     {
         MadeItem = false;
-        GameObject obj = Instantiate(DropItem, new Vector3(transform.position.x,-1.78f, transform.position.z), Quaternion.identity);
+        GameObject obj = Instantiate(DropItem, new Vector3(transform.position.x,2.55f, transform.position.z), Quaternion.identity);
     }
 
     void GotoNextPoint()

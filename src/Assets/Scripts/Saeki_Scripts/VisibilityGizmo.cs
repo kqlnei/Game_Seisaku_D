@@ -13,8 +13,8 @@ public class VisibilityGizmo : MonoBehaviour
     [SerializeField] private Material Mat_Y;
     [SerializeField] private Material Mat_R;
 
-    [SerializeField] GameObject Visbility;
-    EnemyVisibility _VisbilityTrigger;
+    [SerializeField] GameObject Light;
+    EnemyLight _LightTrigger;
 
     // Start is called before the first frame update
     void Start()
@@ -52,7 +52,7 @@ public class VisibilityGizmo : MonoBehaviour
 
         _Light_Gizmo.GetComponent<MeshFilter>().sharedMesh = mesh;
 
-        _VisbilityTrigger = Visbility.GetComponent<EnemyVisibility>();
+        _LightTrigger = Light.GetComponent<EnemyLight>();
 
         _Light_Gizmo.transform.localPosition = Vector3.down;
     }
@@ -60,14 +60,14 @@ public class VisibilityGizmo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_VisbilityTrigger.visbilityEnter && !Mat_Change)
+        if (_LightTrigger.lightEnter && !Mat_Change)
         {
             _Light_Gizmo.GetComponent<MeshRenderer>().material = Mat_R;
             Mat_Change = true;
         }
             
 
-        else if(!_VisbilityTrigger.visbilityEnter && Mat_Change)
+        else if(!_LightTrigger.lightEnter && Mat_Change)
         {
             _Light_Gizmo.GetComponent<MeshRenderer>().material = Mat_Y;
             Mat_Change = false;

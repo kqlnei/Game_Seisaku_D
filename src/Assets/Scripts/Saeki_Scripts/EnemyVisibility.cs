@@ -9,7 +9,7 @@ public class EnemyVisibility : MonoBehaviour
     public bool visbilityEnter;
     //public GameObject escapetextObject;
     //[SerializeField] private GameObject player;
-    public bool TimeOvercontroll;
+    //public bool TimeOvercontroll;
     //LifeScript _life;
 
     //public float Interval = 3.0f;
@@ -23,7 +23,7 @@ public class EnemyVisibility : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        TimeOvercontroll = true;
+        //TimeOvercontroll = true;
         visbilityEnter = false;
         //escapetextObject.SetActive(false);
 
@@ -96,7 +96,7 @@ public class EnemyVisibility : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             visbilityEnter = false;
-            TimeOvercontroll = true;
+            //TimeOvercontroll = true;
         }
     }
 }

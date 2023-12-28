@@ -6,18 +6,23 @@ using UnityEngine.UI;
 public class EnemyLight : MonoBehaviour
 {
     public bool lightEnter;
+    public bool TimeOvercontroll;
 
-    public Slider slider;
+    public AudioClip chase, sound2;
+    AudioSource audioSource;
+    //public Slider slider;
 
-    private float originalSliderValue;
+    //private float originalSliderValue;
 
-    private Coroutine returnTo100Coroutine;
+    //private Coroutine returnTo100Coroutine;
     // Start is called before the first frame update
     void Start()
     {
+        TimeOvercontroll = true;
         lightEnter = false;
-        slider.value = 100;
-        originalSliderValue = slider.value;
+        audioSource = GetComponent<AudioSource>();
+        //slider.value = 100;
+        //originalSliderValue = slider.value;
     }
 
     // Update is called once per frame
@@ -30,8 +35,9 @@ public class EnemyLight : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            
-            float decreaseSpeed = 5f;
+            lightEnter = true;
+            audioSource.PlayOneShot(chase);
+            /*float decreaseSpeed = 5f;
             float targetValue = slider.value - decreaseSpeed;
 
             slider.value = Mathf.Lerp(slider.value, targetValue, Time.deltaTime * decreaseSpeed);
@@ -51,7 +57,7 @@ public class EnemyLight : MonoBehaviour
                 }
                 slider.value = 100;
                
-            }
+            }*/
         }
     }
 
@@ -60,12 +66,14 @@ public class EnemyLight : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             lightEnter = false;
+            TimeOvercontroll = true;
+            audioSource.Stop();
             // コルーチンを開始し、そのCoroutineオブジェクトへの参照を保持
-            returnTo100Coroutine = StartCoroutine(ReturnSliderTo100OverTime());
+            //returnTo100Coroutine = StartCoroutine(ReturnSliderTo100OverTime());
         }
     }
 
-    IEnumerator ReturnSliderTo100OverTime()
+    /*IEnumerator ReturnSliderTo100OverTime()
     {
         float elapsedTime = 0f;
         float duration = 10f;
@@ -78,5 +86,5 @@ public class EnemyLight : MonoBehaviour
         }
 
         slider.value = 100;
-    }
+    }*/
 }
