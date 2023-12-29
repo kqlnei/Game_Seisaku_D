@@ -19,6 +19,7 @@ public class HideScript : MonoBehaviour
     private BoxCollider boxCollider;
     
     public Image hideImage;
+    private Color imageColor;
 
     private CapsuleCollider capsuleCollider;
 
@@ -26,18 +27,21 @@ public class HideScript : MonoBehaviour
 
     public AudioClip Armorse;
     public AudioClip Armorvc;
+    public AudioClip Actionvc;
     private AudioSource audioSource;
     public AudioSource audioSource1;
+    public AudioSource audioSource2;
 
     Animator ArmorAnimator;
     private Animator m_Animator;
     // Start is called before the first frame update
     void Start()
     {
-        hideImage.gameObject.SetActive(false);
+        hideImage.gameObject.SetActive(true);
         capsuleCollider = GetComponent<CapsuleCollider>();
         playerController = GetComponent<Playercontroller>();
         m_Animator = GetComponent<Animator>();
+        imageColor = hideImage.color;
     }
 
     // Update is called once per frame
@@ -137,6 +141,15 @@ public class HideScript : MonoBehaviour
         }
                     
     }
+
+    private void OnTriggerEnter(Collider col)
+    {
+        if (col.gameObject.tag == "Hide")
+        {
+            audioSource2.PlayOneShot(Actionvc);
+        }
+    }
+
     private void OnTriggerStay(Collider col)
     {
         if (col.gameObject.tag == "Hide")
@@ -148,7 +161,11 @@ public class HideScript : MonoBehaviour
             ArmorAnimator = ArmorTransform.GetComponent<Animator>();
 
             isPlayerInside = true;
-            hideImage.gameObject.SetActive(true);
+            //hideImage.gameObject.SetActive(true);
+
+            // ìßñæìxÇ255Ç…ïœçX
+            imageColor.a = 255f / 255f;
+            hideImage.color = imageColor;
 
             OutSidePoint = col.transform.GetChild(0);
             InSidePoint = col.transform.GetChild(1);
@@ -163,6 +180,8 @@ public class HideScript : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         isPlayerInside = false;
-        hideImage.gameObject.SetActive(false);
+        //hideImage.gameObject.SetActive(false);
+        imageColor.a = 40f / 255f;
+        hideImage.color = imageColor;
     }
 }

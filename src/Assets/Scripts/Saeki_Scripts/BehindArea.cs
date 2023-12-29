@@ -17,10 +17,12 @@ public class BehindArea : MonoBehaviour
     private GameObject playerObject;
     private Playercontroller playerController;
 
-    public AudioClip sound1, sound2;
+    public AudioClip sound1, sound2, sound3;
     AudioSource audioSource;
 
     public Image ButtonPushImage;
+    private Color imageColor;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,11 +35,14 @@ public class BehindArea : MonoBehaviour
         {
             Debug.LogError("Player object not found. Make sure it has the 'Player' tag.");
         }
-        ButtonPushImage.gameObject.SetActive(false);
+        ButtonPushImage.gameObject.SetActive(true);
+        imageColor = ButtonPushImage.color;
+
         behindEnter = false;
         playerController = GetComponent<Playercontroller>();
 
         audioSource = GetComponent<AudioSource>();
+
     }
 
     // Update is called once per frame
@@ -46,6 +51,14 @@ public class BehindArea : MonoBehaviour
         // Zキーが押されたとき
         if (Gamepad.current.buttonEast.wasReleasedThisFrame && playerInsideArea)// || (Input.GetKeyDown(KeyCode.Z) && playerInsideArea)
         {
+
+            // BoxColliderを非アクティブにする
+            BoxCollider boxCollider = GetComponent<BoxCollider>();
+            if (boxCollider != null)
+            {
+                boxCollider.enabled = false;
+            }
+
             m_Animator.SetBool("Pow", true);
             Invoke("ResetPowParameter", 3f);
             playerInsideArea = false;
@@ -92,17 +105,24 @@ public class BehindArea : MonoBehaviour
 
     void PowTextFalse()
     {
-        ButtonPushImage.gameObject.SetActive(false);
+        imageColor.a = 40f / 255f;
+        ButtonPushImage.color = imageColor;
+        //ButtonPushImage.gameObject.SetActive(false);
     }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-
+            audioSource.PlayOneShot(sound3);
             // behindEnter = true; Debug.Log(behindEnter);
             playerInsideArea = true;
-            ButtonPushImage.gameObject.SetActive(true);
+            //ButtonPushImage.gameObject.SetActive(true);
+
+            // 透明度を255に変更
+            imageColor.a = 255f / 255f;
+            ButtonPushImage.color = imageColor;
+
             image.gameObject.SetActive(false);
         }
     }
@@ -112,7 +132,11 @@ public class BehindArea : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInsideArea = false;
-            ButtonPushImage.gameObject.SetActive(false);
+            //ButtonPushImage.gameObject.SetActive(false);
+
+            imageColor.a = 40f / 255f;
+            ButtonPushImage.color = imageColor;
+
             behindEnter = false;
         }
     }
@@ -121,7 +145,10 @@ public class BehindArea : MonoBehaviour
     {
         // オブジェクトが破棄されるときに実行される処理
         playerInsideArea = false;
-        ButtonPushImage.gameObject.SetActive(false);
+        //ButtonPushImage.gameObject.SetActive(false);
+        imageColor.a = 40f / 255f;
+        ButtonPushImage.color = imageColor;
+
         behindEnter = false;
         Debug.Log("OnDestroy");
     }

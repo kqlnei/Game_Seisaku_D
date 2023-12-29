@@ -20,10 +20,12 @@ public class PoltergeisScript : MonoBehaviour
     private float glassBreakDuration = 2f; // 必要に応じて時間を調整してください
 
     public Image polImage;
+    private Color imageColor;
 
     public AudioClip Poltervc;
-    
+    public AudioClip Actionvc;
     public AudioSource audioSource1;
+    public AudioSource audioSource2;
 
     private Animator m_Animator;
 
@@ -32,8 +34,10 @@ public class PoltergeisScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        polImage.gameObject.SetActive(false);
+        polImage.gameObject.SetActive(true);
         m_Animator = GetComponent<Animator>();
+
+        imageColor = polImage.color;
     }
 
     // Update is called once per frame
@@ -48,8 +52,13 @@ public class PoltergeisScript : MonoBehaviour
                 if (parentAnimator != null)
                 {
                     parentAnimator.SetBool("isFall", true);
-                   
-                    polImage.gameObject.SetActive(false);
+
+                    //polImage.gameObject.SetActive(false);
+                    // 透明度を40に変更
+                    imageColor.a = 40f / 255f;
+                    polImage.color = imageColor;
+
+
                     if (sphereCollider != null)
                     {
                         sphereCollider.enabled = true;
@@ -88,8 +97,12 @@ public class PoltergeisScript : MonoBehaviour
     {
         if (col.gameObject.tag == "Pol")
         {
-            polImage.gameObject.SetActive(true);
             isPlayerInside = true;
+
+            // 透明度を255に変更
+            imageColor.a = 255f / 255f;
+            polImage.color = imageColor;
+            audioSource2.PlayOneShot(Actionvc);
         }
     }
 
@@ -118,7 +131,12 @@ public class PoltergeisScript : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         isPlayerInside = false;
-        polImage.gameObject.SetActive(false);
+        //polImage.gameObject.SetActive(false);
+
+        // 透明度を40に変更
+        imageColor.a = 40f / 255f;
+        polImage.color = imageColor;
+
 
     }
 }
