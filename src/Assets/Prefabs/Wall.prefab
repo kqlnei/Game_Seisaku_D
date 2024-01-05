@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4590295400982404344}
   m_Layer: 0
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -491,6 +491,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 44670e8662b09d34f966ff38bad1d149, type: 3}
       propertyPath: m_Name
       value: wall3m (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 44670e8662b09d34f966ff38bad1d149, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 44670e8662b09d34f966ff38bad1d149, type: 3}
       propertyPath: m_IsActive

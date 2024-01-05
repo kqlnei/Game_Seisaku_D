@@ -359,6 +359,7 @@ Transform:
   - {fileID: 2361630652642422638}
   - {fileID: 5373468263872495158}
   - {fileID: 2906439392885886884}
+  - {fileID: 5626689755482573215}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -435,6 +436,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  Door_Open: 0
+  Keyse: {fileID: 0}
+  Lockse: {fileID: 0}
+  audioSource_Key: {fileID: 0}
+  audioSource_Lock: {fileID: 0}
 --- !u!114 &1231894218519962420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -454,6 +460,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   gameOverUI: {fileID: 0}
+  _Slider: {fileID: 0}
+  gameover: {fileID: 0}
 --- !u!114 &1231894218519962427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -469,6 +477,8 @@ MonoBehaviour:
   turnSpeed: 60
   moveSpeed: 5
   stoppingTime: 1
+  walk: {fileID: 0}
+  fadeOutTime: 1
 --- !u!114 &1231894218519962425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -481,9 +491,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 069d511ed377f50468763a800cfecf94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HidetextObject: {fileID: 0}
   HideMode: 0
   moveSpeed: 3
+  hideImage: {fileID: 0}
+  Armorse: {fileID: 0}
+  Armorvc: {fileID: 0}
+  Actionvc: {fileID: 0}
+  audioSource1: {fileID: 0}
+  audioSource2: {fileID: 0}
 --- !u!114 &1231894218519962428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -496,7 +511,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa8ba4644db7b4849bebd2de52d0a2d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PoltertextObject: {fileID: 0}
+  glass_break: 0
+  polImage: {fileID: 0}
+  Poltervc: {fileID: 0}
+  Actionvc: {fileID: 0}
+  audioSource1: {fileID: 0}
+  audioSource2: {fileID: 0}
 --- !u!114 &1231894218519962371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1992,6 +2012,54 @@ Transform:
   m_Father: {fileID: 1232326230030888253}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &9163479609198414987
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5626689755482573215}
+  - component: {fileID: 8613414606075667394}
+  m_Layer: 0
+  m_Name: SupBoxSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5626689755482573215
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9163479609198414987}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0.04}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1626406665211865224}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8613414606075667394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9163479609198414987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3792acd5073d84943bb43c71f88d14a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Surprise_Box: {fileID: 5276797997557822091, guid: afc450f9268ef914db432439c5c00a99, type: 3}
+  wallTag: Wall
+  UIobj: {fileID: 0}
+  roop: 0
 --- !u!1 &9204591918562097174
 GameObject:
   m_ObjectHideFlags: 0

@@ -125,6 +125,11 @@ public class BehindArea : MonoBehaviour
 
             image.gameObject.SetActive(false);
         }
+
+        if(other.CompareTag("Box"))
+        {
+            behindEnter = true;
+        }
     }
 
     void OnTriggerExit(Collider other)
