@@ -15,6 +15,7 @@ TagManager:
   - Fall
   - Pol
   - Wall
+  - SupBox
   layers:
   - Default
   - TransparentFX

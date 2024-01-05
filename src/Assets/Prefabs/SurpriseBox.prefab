@@ -177,9 +177,10 @@ GameObject:
   - component: {fileID: 4787646905785870385}
   - component: {fileID: 5042793549115118764}
   - component: {fileID: 4499177003795769569}
+  - component: {fileID: 6925557857177830245}
   m_Layer: 0
   m_Name: SurpriseBox
-  m_TagString: Untagged
+  m_TagString: SupBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -236,6 +237,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animStart: 3
+  destroyDelay: 10
+--- !u!135 &6925557857177830245
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5276797997557822091}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5704664878995514597
 GameObject:
   m_ObjectHideFlags: 0
