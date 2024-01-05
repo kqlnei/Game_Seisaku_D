@@ -28193,7 +28193,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: f439bbbfc016799468cdf19eee99465a, type: 3}
     - target: {fileID: 1231894218519962427, guid: 156fa40112c89b3408cba2c64eae6b7a, type: 3}
       propertyPath: moveSpeed
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1231894218519962427, guid: 156fa40112c89b3408cba2c64eae6b7a, type: 3}
       propertyPath: fadeOutTime
