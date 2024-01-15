@@ -4,36 +4,31 @@ using UnityEngine;
 
 public class Playercontroller : MonoBehaviour
 {
+    // プレイヤーの移動関連のパラメータ
     public float turnSpeed = 20f;
     public float moveSpeed = 5f;
-    public float stoppingTime = 0.1f; // Adjust this value for the desired stopping time
+    public float stoppingTime = 0.1f;
 
-    private Animator m_Animator;
-    private Rigidbody m_Rigidbody;
-    private Vector3 m_Movement;
-    private Quaternion m_Rotation = Quaternion.identity;
-    private Vector3 m_Velocity;
+    // フェード関連のパラメータ
+    public float fadeOutTime = 1.0f;
 
-
+    // 音声関連の変数
     public AudioClip walk;
     private AudioSource audioSource;
 
-    private bool isWalking;
-
-    // 音量の変化にかかる時間
-    public float fadeOutTime = 1.0f;
+    // プレイヤーの状態を示す変数
+    private Animator playerAnimator;
+    private Rigidbody playerRigidbody;
+    private Vector3 movementInput;
+    private Quaternion rotationInput = Quaternion.identity;
+    private Vector3 velocity;
 
     void Start()
     {
-        m_Animator = GetComponent<Animator>();
-        m_Rigidbody = GetComponent<Rigidbody>();
+        InitializeComponents();
+        InitializeAudioSource();
 
-        audioSource = GetComponent<AudioSource>();
-        if (audioSource == null)
-        {
-            audioSource = gameObject.AddComponent<AudioSource>();
-        }
-        audioSource.clip = walk;
+        // SecretCommandScriptが有効なら速度を調整
         if (SecretComandScript.Comand)
         {
             turnSpeed = 30f;
@@ -43,56 +38,91 @@ public class Playercontroller : MonoBehaviour
 
     void FixedUpdate()
     {
+        HandleInput();
+
+        UpdateMovementAnimation();
+
+        RotatePlayer();
+
+        MovePlayer();
+
+        ManageAudio();
+
+        OnAnimatorMove();
+    }
+
+    void InitializeComponents()
+    {
+        playerAnimator = GetComponent<Animator>();
+        playerRigidbody = GetComponent<Rigidbody>();
+    }
+
+    void InitializeAudioSource()
+    {
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+        audioSource.clip = walk;
+    }
+
+    void HandleInput()
+    {
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
         Vector3 inputDirection = CorrectInputDirection(new Vector3(horizontal, 0f, vertical));
         inputDirection.Normalize();
 
-        m_Movement.Set(inputDirection.x, 0f, inputDirection.z);
+        movementInput.Set(inputDirection.x, 0f, inputDirection.z);
+    }
 
-        bool hasHorizontalInput = !Mathf.Approximately(inputDirection.x, 0f);
-        bool hasVerticalInput = !Mathf.Approximately(inputDirection.z, 0f);
-        bool isWalking = hasHorizontalInput || hasVerticalInput;
-        m_Animator.SetBool("Walking", isWalking);
+    void UpdateMovementAnimation()
+    {
+        bool isWalking = movementInput.magnitude > 0;
+        playerAnimator.SetBool("Walking", isWalking);
+    }
 
-        Vector3 desiredForward = Vector3.RotateTowards(transform.forward, m_Movement, turnSpeed * Time.deltaTime, 0f);
-        m_Rotation = Quaternion.LookRotation(desiredForward);
+    void RotatePlayer()
+    {
+        Vector3 desiredForward = Vector3.RotateTowards(transform.forward, movementInput, turnSpeed * Time.deltaTime, 0f);
+        rotationInput = Quaternion.LookRotation(desiredForward);
+    }
 
-        Move();
+    void MovePlayer()
+    {
+        Vector3 movement = movementInput * moveSpeed * Time.fixedDeltaTime;
+        playerRigidbody.MovePosition(playerRigidbody.position + movement);
 
-        // 音の再生とフェードアウト
-        if (isWalking && !audioSource.isPlaying)
+        if (!movementInput.Equals(Vector3.zero))
+        {
+            velocity = movementInput * moveSpeed;
+        }
+        else
+        {
+            velocity = Vector3.Lerp(velocity, Vector3.zero, stoppingTime * Time.fixedDeltaTime);
+            playerRigidbody.MovePosition(playerRigidbody.position + velocity * Time.fixedDeltaTime);
+        }
+    }
+
+    void ManageAudio()
+    {
+        if (movementInput.magnitude > 0 && !audioSource.isPlaying)
         {
             audioSource.Play();
             StartCoroutine(FadeIn(audioSource, fadeOutTime));
         }
-        else if (!isWalking && audioSource.isPlaying)
+        else if (movementInput.magnitude == 0 && audioSource.isPlaying)
         {
             StartCoroutine(FadeOut(audioSource, fadeOutTime));
         }
     }
 
-    void Move()
-    {
-        Vector3 movement = m_Movement * moveSpeed * Time.fixedDeltaTime;
-        m_Rigidbody.MovePosition(m_Rigidbody.position + movement);
-
-        // Apply inertia to slow down when there is no input
-        if (!m_Movement.Equals(Vector3.zero))
-        {
-            m_Velocity = m_Movement * moveSpeed;
-        }
-        else
-        {
-            m_Velocity = Vector3.Lerp(m_Velocity, Vector3.zero, stoppingTime * Time.fixedDeltaTime);
-            m_Rigidbody.MovePosition(m_Rigidbody.position + m_Velocity * Time.fixedDeltaTime);
-        }
-    }
-
     void OnAnimatorMove()
     {
-        m_Rigidbody.MoveRotation(m_Rotation);
+        // アニメーターが移動したら、プレイヤーも回転を適用する
+        playerRigidbody.MoveRotation(rotationInput);
     }
 
     Vector3 CorrectInputDirection(Vector3 inputDirection)
@@ -104,7 +134,6 @@ public class Playercontroller : MonoBehaviour
         return correctedDirection.normalized;
     }
 
-     // 音のフェードアウト
     IEnumerator FadeOut(AudioSource audioSource, float fadeTime)
     {
         float startVolume = audioSource.volume;
@@ -119,10 +148,9 @@ public class Playercontroller : MonoBehaviour
         audioSource.volume = startVolume;
     }
 
-    // 音のフェードイン
     IEnumerator FadeIn(AudioSource audioSource, float fadeTime)
     {
-        float startVolume = 0.1f; // フェードイン時の開始音量（お好みで調整）
+        float startVolume = 0.1f;
 
         audioSource.volume = 0;
         audioSource.Play();
